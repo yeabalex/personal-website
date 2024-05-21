@@ -4,7 +4,7 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 export default function Footer() {
     return (
-        <footer className="w-full h-14 flex items-center justify-between px-4 py-2 bg-white text-gray-800 border-t border-gray-300 mt-5">
+        <footer className="w-full h-14 flex items-center justify-between px-4 py-2 bg-white text-gray-800 border-t border-gray-300 mt-10">
             <div className="flex items-center space-x-4">
                 <a href="https://github.com/yeabsira-alemu" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                     <FontAwesomeIcon icon={faGithub} style={{ width: "20px" }} />
