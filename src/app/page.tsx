@@ -54,7 +54,7 @@ export default function Home() {
       </div>
       <div className="w-[150px] mt-7">
         <Button color="warning" size="lg">
-          Click to hire me
+          Hire Me
         </Button>
       </div>
       <div className="mt-9">
