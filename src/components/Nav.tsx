@@ -26,7 +26,7 @@ export default function NavBar(){
                     <Link 
                         href={link.href} 
                         key={link.name} 
-                        className={`${isActive ? "font-bold underline" : "text-[#000201] opacity-70"} hover:font-bold hover:underline`}
+                        className={`${isActive ? "font-bold underline" : "text-[#000201] opacity-70"} hover:font-bold hover:underline transition duration-400`}
                     >
                         {link.name}
                     </Link>

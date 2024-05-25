@@ -2,14 +2,27 @@
 
 import Image from "next/image";
 import Photo from "../../public/memoji1.webp";
-import Logos from "@/components/LogosList";
 import { Button } from "@nextui-org/react";
 import { Typewriter } from 'react-simple-typewriter';
-import Quote from "@/components/Quote"
+import { useEffect, useState } from "react";
+import Loading from "./load";
+
 
 export default function Home() {
+
+  const [loading, setLoading] = useState(true)
+
+  useEffect(()=>{
+    const timer = setTimeout(()=>{
+      setLoading(prev=>!prev)
+    },1000)
+
+    return ()=>clearTimeout(timer)
+  },[])
+
+if(!loading){
   return (
-    <main className="flex flex-col justify-between mt-[100px] ml-[19%] w-[70%] h-[700px]">
+    <main className="flex flex-col justify-between mt-[80px] ml-[19%] w-[70%] h-[470px]">
       <div className="flex flex-row justify-evenly">
         <div className="w-[50%]">
           <h1 className="font-black text-5xl text-customColor leading-tight">
@@ -53,14 +66,15 @@ export default function Home() {
         </div>
       </div>
       <div className="w-[150px] mt-7">
-        <Button color="warning" size="lg">
+        <Button color="default" size="lg">
           Hire Me
         </Button>
       </div>
-      <div className="mt-9">
-        <Logos />
-      </div>
-      <Quote/>
+     
+      
     </main>
   );
+}else{
+  return <Loading/>
+}
 }
