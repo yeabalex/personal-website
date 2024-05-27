@@ -10,12 +10,13 @@ import "../globals.css"
 export default function About() {
 
     const hobbies = [
-      {name: "Hosue Music", id: "1", icon: "/logos/drum-machine.png"},
+      {name: "Fred again....", id: "1", icon: "/logos/drum-machine.png"},
       {name: "Geoguesser", id: "2", icon: "/logos/country-location-icon.svg"},
       {name: "Cycling", id: "3", icon: "/logos/bike-svgrepo-com.svg"}
     ]
 
-    return (        
+    return (   
+      <div className="w-[100%] flex flex-row justify-center">     
       <div className="max-w-[800px] min-h-[400px] gap-5 grid grid-cols-12 grid-rows-2 mt-20">   
       <Card isFooterBlurred className="w-full h-[280px] col-span-12 sm:col-span-7 bg-gradient-to-l from-gray-200 via-fuchsia-200 to-stone-100 p-8 flex-col justify-evenly hover:transform hover:scale-105 hover:z-10 transition duration-400">
          <div className="flex flex-row justify-between w-[150px] items-center"> 
@@ -67,6 +68,7 @@ export default function About() {
           <h4 className="text-white font-medium text-large">Creates beauty like a beast</h4>
         </CardHeader>
       </Card>
+    </div>
     </div>
     );
   }

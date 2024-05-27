@@ -22,7 +22,7 @@ export default function Home() {
 
 if(!loading){
   return (
-    <main className="flex flex-col justify-between mt-[80px] ml-[19%] w-[70%] h-[470px]">
+    <main className="flex flex-col justify-between mt-[80px] ml-[19%] w-[70%] h-[400px]">
       <div className="flex flex-row justify-evenly">
         <div className="w-[50%]">
           <h1 className="font-black text-5xl text-customColor leading-tight">
@@ -44,29 +44,24 @@ if(!loading){
               Solving problems is my speciality :)
             </p>
             <p className="mt-6 text-p2 leading-relaxed">
-              My name is Yeabsira, I am a software engineer
-              <br />
-              based in the beautiful city of Addis, Ethiopia.
+              I am a software engineer
+              based in the <br/> beautiful city of Brasov, Romania 🇷🇴.
               <br />
               I am currently working around <strong>Firebase</strong>,
               <br />
               <strong>Tailwind-css</strong> and <strong>NextJS</strong>.
             </p>
             <p className="mt-6 text-p2 leading-relaxed">
-              I am either smiling or looking super serious.
-              <br />
-              If it's the latter one, I am probably thinking
-              <br />
-              about food.
+              I am available to work.
             </p>
           </div>
         </div>
-        <div className="w-[50%] h-96 relative top-8 left-10">
+        <div className="w-[50%] h-80 relative top-8 left-10">
           <Image src={Photo} alt="yeabsira" layout="fill" objectFit="cover" />
         </div>
       </div>
       <div className="w-[150px] mt-7">
-        <Button color="default" size="lg">
+        <Button color="warning" size="lg">
           Hire Me
         </Button>
       </div>
