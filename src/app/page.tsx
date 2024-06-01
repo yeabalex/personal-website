@@ -45,9 +45,8 @@ if(!loading){
             </p>
             <p className="mt-6 text-p2 leading-relaxed">
               I am a software engineer
-              based in the <br/> beautiful city of Brasov, Romania 🇷🇴.
-              <br />
-              I am currently working around <strong>Firebase</strong>,
+              based in Addis Ababa, Ethiopia.
+              Currently working around <strong>Firebase</strong>,
               <br />
               <strong>Tailwind-css</strong> and <strong>NextJS</strong>.
             </p>
