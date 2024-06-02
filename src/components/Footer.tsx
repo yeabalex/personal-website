@@ -23,7 +23,7 @@ export default function Footer() {
                 &copy; {new Date().getFullYear()} Made by Yeabsira
             </div>
             <div className="text-center text-sm">
-                Brasov, Romania
+                Addis Ababa, Ethiopia
             </div>
         </footer>
     );

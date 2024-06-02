@@ -7,4 +7,4 @@ interface AuthData {
 export const auth: AuthData[] = [
 
 
-{"access_token":"BQB3P8MmM3NaufP_z4ATL02Kl87-pvbMDIIRE5g-_DQ__T09LoO3tNz-wsjPNkwZ2n_34dnX_7NHPdqX3ImXLNvBGExtFDcfP9hioGywMYb2GyzZ1uw","token_type":"Bearer","expires_in":3600}]
+{"access_token":"BQAH7NmRDBGL-OtK3Bxydd4HkHl1GdMAZJDiepjfBfozIFgpYEjN0uimE-gw9drW7ogTtyT6DduG2fd5Q_frl_XcutFykH7kkqR3TjxA13Dqw8lN2m0","token_type":"Bearer","expires_in":3600}]

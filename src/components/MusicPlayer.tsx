@@ -1,102 +1,71 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Card, CardBody } from "@nextui-org/card";
-import Image from "next/image";
+import { Image } from "@nextui-org/image";
 import { Button } from "@nextui-org/button";
-import { Slider } from "@nextui-org/slider";
-import HeartIcon from "@/../public/icons/Like.svg";
-import PauseCircleIcon from "@/../public/icons/Pause.svg";
-import NextIcon from "@/../public/icons/Next.svg";
-import PreviousIcon from "@/../public/icons/Previous.svg";
-import RepeatOneIcon from "@/../public/icons/Repeat.svg";
-import ShuffleIcon from "@/../public/icons/Shuffle.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpotify } from "@fortawesome/free-brands-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
+import Load from "@/app/load";
+import Lottie from 'lottie-react';
+import waves from "@/../public/icons/waves.json"
 
-export default function MusicPlayer() {
+export default function MusicPlayer(params: Params) {
   const [liked, setLiked] = useState(false);
-
+  
   return (
     <Card
-      className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden"
-      style={{ maxWidth: "580px", height: "230px" }}
+      isBlurred
+      className="border-none w-[490px] h-[230px] relative bg-white"
+      shadow="sm"
     >
-      <CardBody>
-        <div className="flex items-center gap-36">
-          <div className="flex flex-row">
-          <div className="relative w-24 h-24">
-            <Image
-              alt="Album cover"
-              objectFit="cover"
-              src="/yeab.png"
-              layout="fill"
-              className="rounded-lg"
-            />
+      <CardBody className="bg-white/70 p-4 rounded-lg">
+        <div className="flex flex-row justify-between items-center gap-4 min-h-[200px]">
+          <Image
+            alt="Album cover"
+            className="object-cover h-[180px] rounded-lg"
+            shadow="md"
+            src={params.albumCover}
+            width="100%"
+          />
+          <div className="flex flex-col w-[40%]">
+            <div>
+              <FontAwesomeIcon icon={faSpotify} style={{ color: "#1ed760" }} size="2xl" />
+            </div>
+            <div className="flex justify-between items-start mt-4">
+              <div className="flex flex-col gap-2">
+                <div className="flex flex-row items-center justify-start -ml-[10px]">
+                  <div className="w-[50px] h-[50px]">
+                  <Lottie animationData={waves}/>
+                  </div>
+                  <p className="text-base text-[#1ED760] font-semibold">Now playing</p>
+                </div>
+                <h1 className="text-base font-bold leading-5">{params.songName}</h1>
+                <p className="text-xs opacity-50">{params.artistName}</p>
+              </div>
+              <Button
+                isIconOnly
+                className="text-default-900/60 data-[hover]:bg-foreground/10 -translate-y-2 translate-x-2 absolute top-4 right-4"
+                radius="full"
+                variant="light"
+                onPress={() => setLiked((v) => !v)}
+              >
+                {liked ? (
+                  <FontAwesomeIcon icon={faHeart} style={{ color: "#1ed760" }} size="2x" />
+                ) : (
+                  <FontAwesomeIcon
+                    icon={faHeart}
+                    style={{
+                      "--fa-secondary-color": "#000000",
+                      "--fa-primary-color": "#000000",
+                      "--fa-primary-opacity": ".1",
+                    } as React.CSSProperties}
+                    size="2x"
+                  />
+                )}
+              </Button>
+            </div>
           </div>
-
-          <div className="flex flex-col">
-            <h3 className="font-semibold text-gray-800 dark:text-white">
-              Daily Mix
-            </h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400">12 Tracks</p>
-            <h1 className="text-lg font-bold mt-2">Frontend Radio</h1>
-          </div>
-        </div>
-          <Button
-            className="flex items-center justify-center w-10 h-10 rounded-full text-gray-500 dark:text-gray-400 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-            onPress={() => setLiked((v) => !v)}
-          >
-            <Image
-              alt="Heart"
-              src={HeartIcon}
-              width={24}
-              height={24}
-            />
-          </Button>
-        </div>
-
-        <Slider
-          aria-label="Music progress"
-          classNames={{
-            track: "bg-gray-300 dark:bg-gray-600 rounded-full",
-            thumb: "w-3 h-3 bg-gray-800 dark:bg-white border-2 border-white rounded-full",
-          }}
-          defaultValue={33}
-          size="sm"
-        />
-        <div className="flex justify-between">
-          <p className="text-xs text-gray-500 dark:text-gray-400">1:23</p>
-          <p className="text-xs text-gray-500 dark:text-gray-400">4:32</p>
-        </div>
-
-        <div className="flex items-center justify-center gap-4 mt-4">
-          <Button
-            className="flex items-center justify-center w-10 h-10 rounded-full text-gray-500 dark:text-gray-400 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-          >
-            <Image alt="Repeat" src={RepeatOneIcon} width={20} height={20}/>
-          </Button>
-          <Button
-            className="flex items-center justify-center w-10 h-10 rounded-full text-gray-500 dark:text-gray-400 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-          >
-            <Image alt="Prev" src={PreviousIcon} width={20} height={20}/>
-          </Button>
-          <Button
-            className="flex items-center justify-center w-12 h-12 rounded-full text-gray-500 dark:text-gray-400 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-          >
-            <Image
-              alt="Pause"
-              src={PauseCircleIcon}
-              width={32}
-              height={32}
-            />
-          </Button>
-          <Button
-            className="flex items-center justify-center w-10 h-10 rounded-full text-gray-500 dark:text-gray-400 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-          >
-            <Image alt="Next" src={NextIcon} width={20} height={20}/>
-          </Button>
-          <Button
-            className="flex items-center justify-center w-10 h-10 rounded-full text-gray-500 dark:text-gray-400 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-          >
-            <Image alt="Shuffle" src={ShuffleIcon} width={20} height={20}/>
-          </Button>
         </div>
       </CardBody>
     </Card>
