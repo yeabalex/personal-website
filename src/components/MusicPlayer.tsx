@@ -16,14 +16,14 @@ export default function MusicPlayer(params: Params) {
   return (
     <Card
       isBlurred
-      className="border-none w-[490px] h-[230px] relative bg-white"
+      className="border-none w-[550px] h-[230px] relative bg-white hover:transform hover:scale-105 hover:z-10 transition duration-400"
       shadow="sm"
     >
       <CardBody className="bg-white/70 p-4 rounded-lg">
-        <div className="flex flex-row justify-between items-center gap-4 min-h-[200px]">
+        <div className="flex flex-row justify-evenly gap-16 items-center min-h-[200px]">
           <Image
             alt="Album cover"
-            className="object-cover h-[180px] rounded-lg"
+            className="object-cover h-[200px] rounded-lg"
             shadow="md"
             src={params.albumCover}
             width="100%"
@@ -40,8 +40,8 @@ export default function MusicPlayer(params: Params) {
                   </div>
                   <p className="text-base text-[#1ED760] font-semibold">Now playing</p>
                 </div>
-                <h1 className="text-base font-bold leading-5">{params.songName}</h1>
-                <p className="text-xs opacity-50">{params.artistName}</p>
+                <h1 className="text-xl font-bold leading-5">{params.songName}</h1>
+                <p className="text-sm opacity-50">{params.artistName}</p>
               </div>
               <Button
                 isIconOnly

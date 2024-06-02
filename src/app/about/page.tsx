@@ -9,6 +9,7 @@ import AboutMe from "@/components/AboutMe";
 import Hobbies from "@/components/Hobbies";
 import Twitter from "@/components/Twitter";
 import Load from "../load";
+import Quote from "@/components/Quote";
 
 async function fetchData() {
   const res = await axios({
@@ -57,20 +58,21 @@ export default function About() {
     return <div>Loading...</div>;
   }
 
-  const artwork: string = songs[2].track.album.images[0].url;
-  const songName: string = songs[2].track.name;
+  const artwork: string = songs[3].track.album.images[0].url;
+  const songName: string = songs[3].track.name;
   let artistsArray: string[] = []; 
 
-  for (let i = 0; i < songs[2].track.artists.length; i++) {
-    artistsArray.push(songs[2].track.artists[i].name);
+  for (let i = 0; i < songs[3].track.artists.length; i++) {
+    artistsArray.push(songs[3].track.artists[i].name);
   }
 
   return (
+   <div className="w-[100%] flex flex-col justify-center"> 
     <div className="w-[100%] flex flex-row justify-center">
       <div className="max-w-[800px] min-h-[400px] gap-5 grid grid-cols-12 grid-rows-2 mt-20">
         <AboutMe />
         <Hobbies />
-        <div className="w-[800px] flex flex-row justify-between">
+        <div className="w-[800px] flex flex-row gap-5 justify-between">
           <Twitter />
           <MusicPlayer
             songName={songName}
@@ -79,6 +81,8 @@ export default function About() {
           />
         </div>
       </div>
+    </div>
+    <Quote/>
     </div>
   );
 }
