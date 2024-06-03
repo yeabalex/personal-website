@@ -16,11 +16,11 @@ export default function MusicPlayer(params: Params) {
   return (
     <Card
       isBlurred
-      className="border-none w-[550px] h-[230px] relative bg-white hover:transform hover:scale-105 hover:z-10 transition duration-400"
+      className="border-none w-[550px] h-[250px] relative bg-white hover:transform hover:scale-105 hover:z-10 transition duration-400 cursor-pointer"
       shadow="sm"
     >
       <CardBody className="bg-white/70 p-4 rounded-lg">
-        <div className="flex flex-row justify-evenly gap-16 items-center min-h-[200px]">
+        <div className="flex flex-row justify-evenly gap-16 items-center min-h-[215px]">
           <Image
             alt="Album cover"
             className="object-cover h-[200px] rounded-lg"
@@ -34,7 +34,7 @@ export default function MusicPlayer(params: Params) {
             </div>
             <div className="flex justify-between items-start mt-4">
               <div className="flex flex-col gap-2">
-                <div className="flex flex-row items-center justify-start -ml-[10px]">
+                <div className="flex flex-row items-center justify-start -ml-[12px]">
                   <div className="w-[50px] h-[50px]">
                   <Lottie animationData={waves}/>
                   </div>
