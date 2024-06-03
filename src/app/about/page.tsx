@@ -80,9 +80,18 @@ export default function About() {
   }, [token]);
 
   useEffect(() => {
+    const savedIndex = localStorage.getItem('currentSongIndex');
+    if (savedIndex !== null) {
+      setIndex(parseInt(savedIndex));
+    }
+
     const intervalId = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % (playlistInfo.length || 1));
-    }, 90000);
+      setIndex((prevIndex) => {
+        const newIndex = (prevIndex + 1) % (playlistInfo.length || 1);
+        localStorage.setItem('currentSongIndex', newIndex.toString());
+        return newIndex;
+      });
+    }, 60000);
 
     return () => clearInterval(intervalId);
   }, [playlistInfo.length]);
