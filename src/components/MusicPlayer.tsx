@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Card, CardBody } from "@nextui-org/card";
 import { Image } from "@nextui-org/image";
 import { Button } from "@nextui-org/button";
@@ -9,9 +9,26 @@ import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import Load from "@/app/load";
 import Lottie from 'lottie-react';
 import waves from "@/../public/icons/waves.json"
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import { faBackward } from "@fortawesome/free-solid-svg-icons";
+import { faForward } from "@fortawesome/free-solid-svg-icons";
+import { faPause } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "@nextui-org/react";
 
 export default function MusicPlayer(params: Params) {
   const [liked, setLiked] = useState(false);
+  const [play, setPlay] = useState(false)
+
+  const audioPlayer = useRef<HTMLAudioElement>(null)
+
+  function togglePlay(){
+    if(!play){
+    audioPlayer.current?.play()
+    }else{
+      audioPlayer.current?.pause()
+    }
+    setPlay(prev=>!prev)
+  }
   
   return (
     <Card
@@ -21,6 +38,7 @@ export default function MusicPlayer(params: Params) {
     >
       <CardBody className="bg-white/70 p-4 rounded-lg">
         <div className="flex flex-row justify-evenly gap-16 items-center min-h-[215px]">
+         <div className="relative"> 
           <Image
             alt="Album cover"
             className="object-cover h-[200px] rounded-lg"
@@ -28,6 +46,39 @@ export default function MusicPlayer(params: Params) {
             src={params.albumCover}
             width="100%"
           />
+          <div className="w-[200px] h-[200px] bg-black absolute top-0 z-10 opacity-0 rounded hover:opacity-70 transition duration-400 flex flex-row justify-center items-center">
+           <div className="w-[210px] flex flex-row justify-evenly transition duration-400"> 
+
+            <Button
+            isIconOnly
+            radius="full"
+            variant="light"
+            onPress={params.prevSong}
+            >
+              <FontAwesomeIcon icon={faBackward} style={{color:"#fff"}} size="2x"/>
+            </Button>  
+            
+            <Button
+            isIconOnly
+            onPress={togglePlay}
+            radius="full"
+            variant="light"
+            >
+            {play?<FontAwesomeIcon icon={faPause} style={{color: "#ffffff",}} size="3x"/>:<FontAwesomeIcon icon={faPlay} style={{color: "#ffffff",}} size="3x"/>}
+            </Button>  
+        
+            <Button
+            isIconOnly
+            onPress={params.nextSong}
+            radius="full"
+            variant="light"
+            >
+              <FontAwesomeIcon icon={faForward} style={{color:"#fff"}} size="2x"/>
+            </Button>
+
+           </div>
+          </div>
+          </div>
           <div className="flex flex-col w-[40%]">
             <div>
               <FontAwesomeIcon icon={faSpotify} style={{ color: "#1ed760" }} size="2xl" />
@@ -67,6 +118,7 @@ export default function MusicPlayer(params: Params) {
             </div>
           </div>
         </div>
+        <audio ref={audioPlayer} src={params.preview}/>
       </CardBody>
     </Card>
   );

@@ -27,9 +27,15 @@ export default function About() {
     }
   }
 
-  const [playlistInfo, setPlayListInfo] = useState([]);
+  interface SongPosition {
+    backward: number,
+    forward: number
+  }
+
+  const [playlistInfo, setPlayListInfo] = useState<Song[]>([]);
   const [token, setToken] = useState('');
   const [index, setIndex] = useState(0);
+  const [songPosition, setSongPosition] = useState<SongPosition>({ backward: 0, forward: 0 });
 
   const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
   const clientSecret = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET;
@@ -54,7 +60,7 @@ export default function About() {
 
     getToken();
 
-    const intervalId = setInterval(getToken, 60 * 60 * 1000); 
+    const intervalId = setInterval(getToken, 60 * 60 * 1000);
     return () => clearInterval(intervalId);
   }, [clientId, clientSecret]);
 
@@ -65,7 +71,7 @@ export default function About() {
       try {
         const res = await axios({
           method: 'get',
-          url: 'https://api.spotify.com/v1/playlists/2T186Dbx0iUPTLaxxZiuzg/tracks',
+          url: 'https://api.spotify.com/v1/playlists/37i9dQZF1DX4AyFl3yqHeK/tracks',
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -91,20 +97,42 @@ export default function About() {
         localStorage.setItem('currentSongIndex', newIndex.toString());
         return newIndex;
       });
-    }, 60000);
+    }, 120000);
 
     return () => clearInterval(intervalId);
   }, [playlistInfo.length]);
 
-  const songs: Song[] = playlistInfo;
+  useEffect(() => {
+    setSongPosition({ backward: index, forward: index });
+  }, [index]);
 
-  if (!songs.length) {
+  const prevSong = () => {
+    setSongPosition((prev) => {
+      const newIndex = prev.backward > 0 ? prev.backward - 1 : playlistInfo.length - 1;
+      setIndex(newIndex);
+      localStorage.setItem('currentSongIndex', newIndex.toString());
+      return { ...prev, backward: newIndex };
+    });
+  };
+
+  const nextSong = () => {
+    setSongPosition((prev) => {
+      const newIndex = (prev.forward + 1) % playlistInfo.length;
+      setIndex(newIndex);
+      localStorage.setItem('currentSongIndex', newIndex.toString());
+      return { ...prev, forward: newIndex };
+    });
+  };
+
+  if (!playlistInfo.length) {
     return <div>Loading...</div>;
   }
-
-  const artwork: string = songs[index].track.album.images[0].url;
-  const songName: string = songs[index].track.name;
-  const artistsArray: string[] = songs[index].track.artists.map(artist => artist.name);
+  
+  
+  const artwork: string = playlistInfo[index].track.album.images[0].url;
+  const songName: string = playlistInfo[index].track.name;
+  const artistsArray: string[] = playlistInfo[index].track.artists.map(artist => artist.name);
+  const preview: string = playlistInfo[index].track.preview_url
 
   return (
     <div className="w-[100%] flex flex-col justify-center"> 
@@ -118,6 +146,10 @@ export default function About() {
               songName={songName}
               artistName={artistsArray.join(", ")}
               albumCover={artwork}
+              index={index}
+              prevSong={prevSong}
+              nextSong={nextSong}
+              preview={preview}
             />
           </div>
         </div>
