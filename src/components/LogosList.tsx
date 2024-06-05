@@ -23,7 +23,7 @@ export default function Logos() {
   return (
     <div className="flex flex-row bg-[#FFF] justify-between overflow-hidden items-center p-5 rounded-full h-[65px] shadow-xl w-[100%] mt-10"> 
       {logos.map((logo, index) => (
-        <Tooltip content={logo.name}>
+        <Tooltip key={index} content={logo.name}>
         <Image
           key={index}
           src={logo.src}
