@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
-import Load from "@/app/load";
 import Lottie from 'lottie-react';
 import waves from "@/../public/icons/waves.json"
 import { faPlay } from "@fortawesome/free-solid-svg-icons";

@@ -5,8 +5,7 @@ import Photo from "../../public/memoji1.webp";
 import { Button } from "@nextui-org/react";
 import { Typewriter } from 'react-simple-typewriter';
 import { useEffect, useState } from "react";
-import Loading from "./load";
-import About from "./(about)/page";
+import About from "./(about)/about";
 import Logos from "@/components/LogosList";
 
 export default function Home() {
