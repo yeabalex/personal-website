@@ -1,12 +1,24 @@
 import { Card, CardHeader } from "@nextui-org/card";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { Button } from "@nextui-org/react";
 
 export default function Twitt(){
    return(
-   <Card className="col-span-12 w-[290px] h-[250px]">
-        <CardHeader className="absolute z-10 top-1 flex-col !items-start">
-            <p className="text-tiny text-white/60 uppercase font-bold">Supercharged</p>
-            <h4 className="text-white font-medium text-large">Creates beauty like a beast</h4>
-        </CardHeader>
+   <Card className="col-span-12 sm:col-span-7 w-[full] h-[320px] bg-black hover:transform hover:scale-105 hover:z-10 transition duration-400 flex flex-row items-center justify-center relative cursor-pointer">
+        <FontAwesomeIcon icon={faGithub} style={{color: "#fff",}} size="10x" />
+        <div className="absolute w-[100%] h-[100%] z-50 bg-black opacity-0 hover:bg-black hover:opacity-80 flex flex-row justify-center items-center">
+      <a href="https://github.com/yeabalex" target="_blank" rel="noopener noreferrer">
+        <Button
+            radius="full"
+            variant="light"
+            size="lg"
+            >   
+            <FontAwesomeIcon icon={faArrowRight} style={{color: "#ffffff",}} size="7x" />  
+         </Button>
+      </a>      
+        </div>
     </Card>
    )
 }

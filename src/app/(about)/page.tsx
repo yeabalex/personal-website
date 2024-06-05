@@ -153,10 +153,10 @@ export default function About() {
   return (
     <div className="w-[100%] flex flex-col justify-center"> 
       <div className="w-[100%] flex flex-row justify-center">
-        <div className="max-w-[950px] min-h-[500px] gap-5 grid grid-cols-12 grid-rows-2 mt-20">
+        <div className="w-[950px] min-h-[500px] gap-12 grid grid-cols-2 grid-rows-2 mt-24">
           <AboutMe />
           <Hobbies />
-          <div className="w-[950px] flex flex-row gap-5 justify-between">
+          
             <Twitter />
             <MusicPlayer
               songName={songName}
@@ -169,7 +169,7 @@ export default function About() {
             />
           </div>
         </div>
-      </div>
+
     </div>
   );
 }

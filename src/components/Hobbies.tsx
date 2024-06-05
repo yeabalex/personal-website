@@ -11,7 +11,7 @@ export default function Hobbies(){
     return(
         <Card
           isFooterBlurred
-          className="w-full h-[280px] col-span-12 sm:col-span-5 hover:transform hover:scale-105 hover:z-10 transition duration-400"
+          className="w-full h-[320px] col-span-12 sm:col-span-7 hover:transform hover:scale-105 hover:z-10 transition duration-400"
           id="hobbies"
         >
           <div className="w-full h-[240px] flex flex-col justify-evenly p-5 pl-8 items-center">

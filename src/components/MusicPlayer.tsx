@@ -34,11 +34,11 @@ export default function MusicPlayer(params: Params) {
   return (
     <Card
       isBlurred
-      className="border-none w-[70%] h-[250px] relative bg-white hover:transform hover:scale-105 hover:z-10 transition duration-400 cursor-pointer"
+      className="flex flex-row items-center justify-center border-none w-[full] h-[320px] col-span-10 sm:col-span-7 relative bg-white hover:transform hover:scale-105 hover:z-10 transition duration-400 cursor-pointer"
       shadow="sm"
     >
       <CardBody className="bg-white/70 p-4 rounded-lg">
-        <div className="flex flex-row justify-evenly gap-16 items-center min-h-[215px]">
+        <div className="flex flex-row justify-evenly gap-16 items-center min-h-[215px] w-[100%]">
          <div className="relative"> 
           <Image
             alt="Album cover"
@@ -92,9 +92,10 @@ export default function MusicPlayer(params: Params) {
                   </div>
                   <p className="text-base text-[#1ED760] font-semibold">Now playing</p>
                 </div>
-                <h1 className="text-xl font-bold leading-5">{params.songName}</h1>
-                <p className="text-sm opacity-50">{params.artistName}</p>
+                <h1 className="text-2xl font-bold leading-5">{params.songName}</h1>
+                <p className="text-base opacity-50">{params.artistName}</p>
               </div>
+             <div className="fixed top-3 right-3"> 
               <Button
                 isIconOnly
                 className="text-default-900/60 data-[hover]:bg-foreground/10 -translate-y-2 translate-x-2 absolute top-4 right-4"
@@ -102,10 +103,11 @@ export default function MusicPlayer(params: Params) {
                 variant="light"
                 onPress={() => setLiked((v) => !v)}
               >
-                <Link href="https://open.spotify.com/playlist/37i9dQZF1DX4AyFl3yqHeK">
-                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} style={{color: "#1ed760",}} size="1x" />
-                </Link>
+                <a href="https://open.spotify.com/playlist/37i9dQZF1DX4AyFl3yqHeK" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} style={{color: "#1ed760",}} size="2x" />
+                </a>
               </Button>
+              </div> 
             </div>
           </div>
         </div>
