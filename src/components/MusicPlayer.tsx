@@ -14,6 +14,7 @@ import { faBackward } from "@fortawesome/free-solid-svg-icons";
 import { faForward } from "@fortawesome/free-solid-svg-icons";
 import { faPause } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "@nextui-org/react";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 export default function MusicPlayer(params: Params) {
   const [liked, setLiked] = useState(false);
@@ -33,7 +34,7 @@ export default function MusicPlayer(params: Params) {
   return (
     <Card
       isBlurred
-      className="border-none w-[550px] h-[250px] relative bg-white hover:transform hover:scale-105 hover:z-10 transition duration-400 cursor-pointer"
+      className="border-none w-[70%] h-[250px] relative bg-white hover:transform hover:scale-105 hover:z-10 transition duration-400 cursor-pointer"
       shadow="sm"
     >
       <CardBody className="bg-white/70 p-4 rounded-lg">
@@ -46,7 +47,7 @@ export default function MusicPlayer(params: Params) {
             src={params.albumCover}
             width="100%"
           />
-          <div className="w-[200px] h-[200px] bg-black absolute top-0 z-10 opacity-0 rounded hover:opacity-70 transition duration-400 flex flex-row justify-center items-center">
+          <div className="w-[100%] h-[200px] bg-black absolute top-0 z-10 opacity-0 rounded hover:opacity-70 transition duration-400 flex flex-row justify-center items-center">
            <div className="w-[210px] flex flex-row justify-evenly transition duration-400"> 
 
             <Button
@@ -81,7 +82,7 @@ export default function MusicPlayer(params: Params) {
           </div>
           <div className="flex flex-col w-[40%]">
             <div>
-              <FontAwesomeIcon icon={faSpotify} style={{ color: "#1ed760" }} size="2xl" />
+              <FontAwesomeIcon icon={faSpotify} style={{ color: "#1ed760" }} size="3x" />
             </div>
             <div className="flex justify-between items-start mt-4">
               <div className="flex flex-col gap-2">
@@ -101,19 +102,9 @@ export default function MusicPlayer(params: Params) {
                 variant="light"
                 onPress={() => setLiked((v) => !v)}
               >
-                {liked ? (
-                  <FontAwesomeIcon icon={faHeart} style={{ color: "#1ed760" }} size="2x" />
-                ) : (
-                  <FontAwesomeIcon
-                    icon={faHeart}
-                    style={{
-                      "--fa-secondary-color": "#000000",
-                      "--fa-primary-color": "#000000",
-                      "--fa-primary-opacity": ".1",
-                    } as React.CSSProperties}
-                    size="2x"
-                  />
-                )}
+                <Link href="https://open.spotify.com/playlist/37i9dQZF1DX4AyFl3yqHeK">
+                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} style={{color: "#1ed760",}} size="1x" />
+                </Link>
               </Button>
             </div>
           </div>

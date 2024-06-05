@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Nav from "../components/Nav"
 import Footer from "@/components/Footer";
-import Customizer from "@/components/Customizer";
 import {Providers} from "./providers";
+//import About from "./(about)/page";
 
 export const metadata: Metadata = {
   title: "y e a b s i r a",
@@ -19,16 +19,10 @@ export default function RootLayout({
     <html lang="en">
       <body>
 
-          <div className="w-[92%] flex flex-row justify-between">
+          <div className="w-[92%] flex flex-row justify-center items-center">
             <Nav/>
             {children}
-            <Providers>
-            <div className="fixed top-5 right-5">  
-            <Customizer/>
-            </div>
-            </Providers>
           </div>
- 
           <Footer/>
 
       </body>

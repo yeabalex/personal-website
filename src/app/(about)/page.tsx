@@ -143,7 +143,7 @@ export default function About() {
   if (!playlistInfo.length) {
     return <div>Loading...</div>;
   }
-  
+
   // Get current song information
   const artwork: string = playlistInfo[index].track.album.images[0].url;
   const songName: string = playlistInfo[index].track.name;
@@ -153,10 +153,10 @@ export default function About() {
   return (
     <div className="w-[100%] flex flex-col justify-center"> 
       <div className="w-[100%] flex flex-row justify-center">
-        <div className="max-w-[800px] min-h-[400px] gap-5 grid grid-cols-12 grid-rows-2 mt-20">
+        <div className="max-w-[950px] min-h-[500px] gap-5 grid grid-cols-12 grid-rows-2 mt-20">
           <AboutMe />
           <Hobbies />
-          <div className="w-[800px] flex flex-row gap-5 justify-between">
+          <div className="w-[950px] flex flex-row gap-5 justify-between">
             <Twitter />
             <MusicPlayer
               songName={songName}

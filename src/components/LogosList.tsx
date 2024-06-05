@@ -18,7 +18,7 @@ export default function Logos() {
   
 
   return (
-    <div className="flex flex-row bg-[#FFF] justify-between overflow-hidden items-center p-5 rounded-full h-[70px] shadow-xl">
+    <div className="flex flex-row bg-[#FFF] justify-between overflow-hidden items-center p-5 rounded-full h-[70px] shadow-xl w-[100%] mt-10">
       {logos.map((logo, index) => (
         <Image
           key={index}
