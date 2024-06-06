@@ -78,7 +78,7 @@ export default function About() {
       try {
         const res = await axios({
           method: 'get',
-          url: 'https://api.spotify.com/v1/playlists/37i9dQZF1DX4AyFl3yqHeK/tracks',
+          url: 'https://api.spotify.com/v1/playlists/37i9dQZF1DX4q6087QOpL9/tracks',
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -110,7 +110,24 @@ export default function About() {
 
     return () => clearInterval(intervalId);
   }, [playlistInfo.length]);
+  
+  useEffect(() => {
+    function removeNull() {
+      let newIndex = index;
+      while (newIndex < playlistInfo.length) {
+        if (playlistInfo[newIndex].track.preview_url !== null) {
+          break;
+        } else {
+          newIndex++;
+        }
+      }
+      if (newIndex !== index) {
+        setIndex(newIndex);
+      }
+    }
 
+    removeNull();
+  }, [index, playlistInfo]);
 
   // Update song position
   useEffect(() => {
@@ -145,6 +162,9 @@ export default function About() {
   }
 
   // Get current song information
+
+
+
   const artwork: string = playlistInfo[index].track.album.images[0].url;
   const songName: string = playlistInfo[index].track.name;
   const artistsArray: string[] = playlistInfo[index].track.artists.map(artist => artist.name);
