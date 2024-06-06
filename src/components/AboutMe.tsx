@@ -9,7 +9,7 @@ export default function AboutMe(){
         >
           <div className="w-[100%] h-[50px] flex flex-row justify-between items-center">
             <Avatar isBordered color="success" src="/yeabsira.jpg" size="md"/>
-            <h4 className="font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#FFD700] via-[#FF1493] via-[#00BFFF] to-[#1ED760] text-5xl">
+            <h4 className="font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#FFD700]  to-[#1ED760] text-5xl">
               About me
             </h4>
           </div>

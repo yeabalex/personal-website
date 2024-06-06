@@ -11,8 +11,7 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  font-family: "DM Sans", sans-serif;  
+  align-items: center;  
 }
 
 

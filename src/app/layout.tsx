@@ -3,7 +3,13 @@ import "./globals.css";
 import Nav from "../components/Nav"
 import Footer from "@/components/Footer";
 import {Providers} from "./providers";
+import {DM_Sans} from "next/font/google"
 //import About from "./(about)/page";
+
+const DMSANS = DM_Sans({
+  weight: ['100','200', '300', '400', '500', '600', '700', '800', '900', '1000'],
+  subsets: ['latin']
+})
 
 export const metadata: Metadata = {
   title: "y e a b s i r a",
@@ -17,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={DMSANS.className}>
 
           <div className="w-[92%] flex flex-row justify-center items-center">
             <Nav/>
