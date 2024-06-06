@@ -19,10 +19,12 @@ export default function Logos() {
     { name: "SQL", src: "/logos/sql.svg" }
   ];
   
+  const duplicateLogos = [...logos, ...logos]
 
   return (
-    <div className="flex flex-row bg-[#FFF] justify-between overflow-hidden items-center p-5 rounded-full h-[65px] shadow-xl w-[100%] mt-10"> 
-      {logos.map((logo, index) => (
+    <div className="flex flex-row bg-[#FFF] overflow-hidden items-center p-5 rounded-full h-[65px] shadow-xl w-[100%] mt-10" id="logo-wrapper"> 
+    <div className="flex space-x-16 animate-loop-scroll">
+      {duplicateLogos.map((logo, index) => (
         <Tooltip key={index} content={logo.name}>
         <Image
           key={index}
@@ -31,10 +33,10 @@ export default function Logos() {
           width={35} 
           height={35}
           objectFit="contain"
-           
         />
         </Tooltip>
       ))}
+      </div>
     </div>
   );
 }

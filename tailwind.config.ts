@@ -10,6 +10,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        "loop-scroll": "loop-scroll 35s linear infinite"
+      },
+      keyframes: {
+        "loop-scroll":{
+          from: {transform: "translateX(0)"},
+          to: {transform: "translateX(-100%)"}
+        }
+      },
       colors: {
         customColor: '#333333',
         nav: '#556B2F',
