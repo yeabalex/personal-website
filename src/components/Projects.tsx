@@ -1,5 +1,6 @@
 import React from 'react';
-import {Button, ButtonGroup} from "@nextui-org/button";
+import { Button, ButtonGroup } from "@nextui-org/button";
+import Image from 'next/image';
 
 const projects = [
   { src: 'path/to/image1.jpg', alt: 'Project 1' },
@@ -22,7 +23,9 @@ function App() {
         <nav className="mt-4">
           <ul className="flex space-x-4">
             {['All', 'Product Design', 'UX Research', 'Logo', 'Desk Design', 'Webflow', 'Social Media', 'Video Effect', 'Non Profit'].map((category) => (
-              <Button><li key={category} className="text-gray-700 cursor-pointer">{category}</li></Button>
+              <Button key={category}>
+                <li className="text-gray-700 cursor-pointer">{category}</li>
+              </Button>
             ))}
           </ul>
         </nav>
@@ -31,11 +34,11 @@ function App() {
         <div className="grid grid-cols-3 gap-4">
           {projects.map((project, index) => (
             <div key={index} className="bg-white p-4 rounded-lg shadow">
-              <img src={project.src} alt={project.alt} className="rounded-md object-cover" />
+              <Image src={project.src} alt={project.alt} className="rounded-md object-cover" width={500} height={300} />
             </div>
           ))}
         </div>
-        <iframe className="border-radius:12px" src="https://open.spotify.com/embed/track/6tSnClpLp6lQ68y4hb2dbp?utm_source=generator" width="100%" height="352" frameBorder="0"  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="eager"></iframe>
+        <iframe className="border-radius:12px" src="https://open.spotify.com/embed/track/6tSnClpLp6lQ68y4hb2dbp?utm_source=generator" width="100%" height="352" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="eager"></iframe>
       </main>
     </div>
   );
