@@ -12,6 +12,7 @@ export default function About() {
   
   interface Song {
     track: {
+      id: string
       name: string,
       preview_url: string,
       duration_ms: number,
@@ -78,7 +79,7 @@ export default function About() {
       try {
         const res = await axios({
           method: 'get',
-          url: 'https://api.spotify.com/v1/playlists/37i9dQZF1DX4q6087QOpL9/tracks',
+          url: 'https://api.spotify.com/v1/playlists/37i9dQZF1DX7ovYHwmjqZK/tracks',
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -106,9 +107,10 @@ export default function About() {
         localStorage.setItem('currentSongIndex', newIndex.toString());
         return newIndex;
       });
-    }, 120000);
+    }, 300000);
 
     return () => clearInterval(intervalId);
+    
   }, [playlistInfo.length]);
   
   useEffect(() => {
@@ -169,11 +171,11 @@ export default function About() {
   const songName: string = playlistInfo[index].track.name;
   const artistsArray: string[] = playlistInfo[index].track.artists.map(artist => artist.name);
   const preview: string = playlistInfo[index].track.preview_url;
-
+  const id: string = playlistInfo[index].track.id
   return (
     <div className="w-[100%] flex flex-col justify-center"> 
       <div className="w-[100%] flex flex-row justify-center">
-        <div className="w-[950px] min-h-[500px] gap-12 grid grid-cols-2 grid-rows-2 mt-24">
+        <div className="w-[1000px] min-h-[500px] gap-12 grid grid-cols-2 grid-rows-2 mt-24">
           <AboutMe />
           <Hobbies />
           
@@ -186,6 +188,7 @@ export default function About() {
               prevSong={prevSong}
               nextSong={nextSong}
               preview={preview}
+              id={id}
             />
           </div>
         </div>
