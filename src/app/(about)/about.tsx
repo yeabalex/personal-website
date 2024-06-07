@@ -7,6 +7,7 @@ import MusicPlayer from "@/components/MusicPlayer";
 import AboutMe from "@/components/AboutMe";
 import Hobbies from "@/components/Hobbies";
 import Twitter from "@/components/Twitter";
+import { Spinner } from "@nextui-org/spinner";
 
 export default function About() {
   
@@ -160,7 +161,7 @@ export default function About() {
 
 
   if (!playlistInfo.length) {
-    return <div>Loading...</div>;
+    return <div className="mt-10"><Spinner label="Loading..." color="current" /></div>;
   }
 
   // Get current song information

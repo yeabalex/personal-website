@@ -3,15 +3,15 @@ import { Button, ButtonGroup } from "@nextui-org/button";
 import Image from 'next/image';
 
 const projects = [
-  { src: 'path/to/image1.jpg', alt: 'Project 1' },
-  { src: 'path/to/image2.jpg', alt: 'Project 2' },
-  { src: 'path/to/image3.jpg', alt: 'Project 3' },
-  { src: 'path/to/image4.jpg', alt: 'Project 4' },
-  { src: 'path/to/image5.jpg', alt: 'Project 5' },
-  { src: 'path/to/image6.jpg', alt: 'Project 6' },
-  { src: 'path/to/image7.jpg', alt: 'Project 7' },
-  { src: 'path/to/image8.jpg', alt: 'Project 8' },
-  { src: 'path/to/image9.jpg', alt: 'Project 9' },
+  { src: '/logos/aws.svg', alt: 'Project 1' },
+  { src: '/logos/aws.svg', alt: 'Project 2' },
+  { src: '/logos/aws.svg', alt: 'Project 3' },
+  { src: '/logos/aws.svg', alt: 'Project 4' },
+  { src: '/logos/aws.svg', alt: 'Project 5' },
+  { src: '/logos/aws.svg', alt: 'Project 6' },
+  { src: '/logos/aws.svg', alt: 'Project 7' },
+  { src: '/logos/aws.svg', alt: 'Project 8' },
+  { src: '/logos/aws.svg', alt: 'Project 9' },
 ];
 
 function App() {
@@ -38,7 +38,6 @@ function App() {
             </div>
           ))}
         </div>
-        <iframe className="border-radius:12px" src="https://open.spotify.com/embed/track/6tSnClpLp6lQ68y4hb2dbp?utm_source=generator" width="100%" height="352" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="eager"></iframe>
       </main>
     </div>
   );
