@@ -22,8 +22,8 @@ export default function Logos() {
   const duplicateLogos = [...logos, ...logos]
 
   return (
-    <div className="flex flex-row bg-[#FFF] overflow-hidden items-center p-5 rounded-full h-[65px] shadow-xl w-[100%] mt-10 justify-center" id="logo-wrapper"> 
-    <div className="flex space-x-20 w-[100%] justify-center">
+    <div className="flex flex-row bg-[#FFF] overflow-hidden items-center p-5 rounded-full h-[65px] shadow-xl w-[100%] mt-10 justify-between" id="logo-wrapper"> 
+    
       {logos.map((logo, index) => (
         <Tooltip key={index} content={logo.name}>
         <Image
@@ -36,7 +36,6 @@ export default function Logos() {
         />
         </Tooltip>
       ))}
-      </div>
     </div>
   );
 }

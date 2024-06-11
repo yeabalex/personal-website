@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <main className="flex flex-col justify-center items-center w-[85%] mt-[120px]">
-        <div className="flex flex-col items-center w-[100%] h-[350px] justify-evenly">
+        <div className="flex flex-col items-center w-[100%] h-[360px] justify-evenly">
           <h1 className="text-7xl tracking-wider">Hey there,</h1>
           <div className="flex flex-row gap-4 items-center max-h-[96px]">
             <h1 className="text-8xl tracking-wide">I am </h1>

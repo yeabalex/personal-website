@@ -8,6 +8,7 @@ import AboutMe from "@/components/AboutMe";
 import Hobbies from "@/components/Hobbies";
 import Twitter from "@/components/Twitter";
 import { Spinner } from "@nextui-org/spinner";
+import { Suspense } from "react";
 
 export default function About() {
   

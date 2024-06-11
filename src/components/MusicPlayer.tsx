@@ -46,7 +46,7 @@ export default function MusicPlayer(params: Params) {
             src={params.albumCover}
             width="100%"
           />
-          <div className="w-[100%] h-[100%] bg-black absolute top-0 z-10 opacity-0 rounded hover:opacity-80 transition duration-400 flex flex-row justify-center items-center">
+          <div className="w-[100%] h-[100%] bg-black absolute top-0 z-10 opacity-0 rounded hover:opacity-70 transition duration-400 flex flex-row justify-center items-center">
            <div className="w-[210px] flex flex-row justify-evenly transition duration-400"> 
 
             <Button
