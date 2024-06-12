@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Switch } from "@nextui-org/switch";
@@ -8,6 +9,23 @@ import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 
 export default function NavBar() {
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
     const links = [
         { name: "works", href: "/works" },
         { name: "resume", href: "/resume" },
@@ -17,7 +35,7 @@ export default function NavBar() {
     const pathname = usePathname();
 
     return (
-        <nav className="flex flex-row justify-evenly fixed top-0 w-full z-50 h-20 items-center bg-white shadow-md">
+        <nav className={`flex flex-row justify-evenly fixed top-0 w-full z-50 h-20 items-center bg-white transition-shadow duration-300 ${isScrolled ? "shadow-md" : ""}`}>
             <div className="w-11/12 flex flex-row justify-between items-center">
                 <Link href="/" className="font-bold text-2xl text-gray-900 transform transition-transform duration-500 hover:scale-110 hover:text-gray-700">
                     yeabsira.
