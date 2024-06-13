@@ -2,9 +2,9 @@ import Image from 'next/image';
 import yeab from '@/../public/yeabsira.jpg'
 export default function Resume() {
   return (
-    <div className="min-h-screen flex items-center justify-center p-8">
-      <div className="bg-white shadow-lg rounded-lg p-8 max-w-4xl w-full">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="min-h-screen flex items-center justify-center p-8 -mt-4">
+      <div className="rounded-lg p-8 max-w-4xl w-full">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div className="flex flex-col items-center justify-center">
             <Image 
               src={yeab}

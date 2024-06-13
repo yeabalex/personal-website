@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.3.3",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/free-regular-svg-icons": "^6.5.2",
@@ -27,6 +28,7 @@
     "@nextui-org/switch": "^2.0.28",
     "axios": "^1.7.2",
     "dotenv": "^16.4.5",
+    "emailjs": "^4.0.3",
     "firebase": "^10.12.2",
     "framer-motion": "^11.2.4",
     "lottie-react": "^2.4.0",
