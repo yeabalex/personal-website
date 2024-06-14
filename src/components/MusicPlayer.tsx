@@ -33,7 +33,7 @@ export default function MusicPlayer(params: Params) {
   return (
     <Card
       isBlurred
-      className="flex flex-row items-center justify-center border-none w-[full] h-[320px] col-span-10 sm:col-span-7 relative bg-white hover:transform hover:scale-105 hover:z-10 transition duration-400 cursor-pointer"
+      className="flex flex-row items-center col-span-2 justify-center border-none w-[full] h-[320px] relative bg-white hover:transform hover:scale-105 hover:z-10 transition duration-400 cursor-pointer"
       shadow="sm"
     >
       <CardBody className="bg-white/70 p-4 rounded-lg">

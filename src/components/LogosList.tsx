@@ -19,21 +19,19 @@ export default function Logos() {
     { name: "SQL", src: "/logos/sql.svg" }
   ];
   
-  const duplicateLogos = [...logos, ...logos]
-
   return (
-    <div className="flex flex-row bg-[#FFF] overflow-hidden items-center p-5 rounded-full h-[65px] shadow-xl w-[100%] mt-10 justify-between" id="logo-wrapper"> 
-    
+    <div className="max-w-[550px] flex flex-row gap-9 absolute top-64" id="logo-wrapper"> 
       {logos.map((logo, index) => (
         <Tooltip key={index} content={logo.name}>
-        <Image
-          key={index}
-          src={logo.src}
-          alt={logo.name}
-          width={35} 
-          height={35}
-          objectFit="cover"
-        />
+          <div className="flex justify-center items-center">
+            <Image
+              src={logo.src}
+              alt={logo.name}
+              width={35} 
+              height={35}
+              objectFit="cover"
+            />
+          </div>
         </Tooltip>
       ))}
     </div>

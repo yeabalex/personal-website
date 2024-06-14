@@ -5,13 +5,14 @@
 
 
 body{
-  background: #fff;
+  background: #000;
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;  
+  font-family: "DM Sans", sans-serif;
 }
 
 
@@ -44,14 +45,6 @@ body{
 
 /* global.css */
 
-@keyframes slide {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100% ); /* Adjust as per your logo size */
-  }
-}
 
 
 

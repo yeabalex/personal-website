@@ -1,72 +1,32 @@
-'use client'
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Switch } from "@nextui-org/switch";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
-import Image from "next/image";
+import { faMoon, faSun, faBars } from "@fortawesome/free-solid-svg-icons";
+import { Button } from "@nextui-org/react";
+import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
+import { usePathname } from "next/navigation";
 
-export default function NavBar() {
-    const [isScrolled, setIsScrolled] = useState(false);
+export default function NavBar(params: Params) {
+   
+  
 
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 0) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
-        };
 
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
 
-    const links = [
-        { name: "works", href: "/works" },
-        { name: "resume", href: "/resume" },
-        { name: "contact", href: "/contact" }
-    ];
-
-    const pathname = usePathname();
+    const pathname = usePathname()
+    
 
     return (
-        <nav className={`flex flex-row justify-evenly fixed top-0 w-full z-50 h-20 items-center bg-white transition-shadow duration-300 ${isScrolled ? "shadow-md" : ""}`}>
-            <div className="w-11/12 flex flex-row justify-between items-center">
-                <Link href="/" className="font-bold text-2xl text-gray-900 transform transition-transform duration-500 hover:scale-110 hover:text-gray-700">
-                    yeabsira.
+        <nav className="flex flex-row justify-end fixed top-0 right-0 w-[23.5%] h-[60px] z-50 items-center bg-[#FFC815] transition-shadow duration-300">
+            <div className="w-[94%] flex flex-row justify-between items-center">
+            <div>
+                <Link href="/" className="font-bold text-2xl text-white transform transition-transform duration-500 hover:scale-110 hover:text-gray-700">
+                    {`yeabsira${pathname}`}
                 </Link>
-                
-                <div className="flex flex-row font-normal space-x-10 text-lg text-gray-900">
-                    {links.map((link) => {
-                        const isActive = (pathname === link.href);
-                        return (
-                            <Link 
-                                href={link.href} 
-                                key={link.name} 
-                                className={`relative transition duration-300 px-2 py-1 ${
-                                    isActive ? "font-bold text-gray-900" : "text-gray-600"
-                                } hover:font-bold hover:text-gray-900`}
-                            >
-                                {link.name}
-                                <span className={`absolute left-0 -bottom-1 w-full h-[2px] bg-gray-900 transition-transform duration-300 ${isActive ? 'scale-x-100' : 'scale-x-0'} origin-left hover:scale-x-100`}></span>
-                            </Link>
-                        );
-                    })}
-                </div>
-                
-                <Switch
-                    defaultSelected
-                    size="md"
-                    color="default"
-                    startContent={<FontAwesomeIcon icon={faSun} style={{ width: "20px" }} />}
-                    endContent={<FontAwesomeIcon icon={faMoon} style={{ width: "20px" }} />}
-                    className="transform transition-transform duration-500 hover:scale-110"
-                />
+            </div>    
+            <div className="bg-customColor w-[80px] h-[60px] flex items-center justify-center">
+                <Button onPress={params.toggle} radius="full"
+            variant="light"><FontAwesomeIcon icon={faBars} style={{color: "#ffffff",}}  size="2x"/></Button>
+            </div>
             </div>
         </nav>
     );

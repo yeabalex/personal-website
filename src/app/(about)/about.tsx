@@ -175,26 +175,33 @@ export default function About() {
   const preview: string = playlistInfo[index].track.preview_url;
   const id: string = playlistInfo[index].track.id
   return (
-    <div className="w-[100%] flex flex-col justify-center"> 
-      <div className="w-[100%] flex flex-row justify-center">
-        <div className="w-[1000px] min-h-[500px] gap-12 grid grid-cols-2 grid-rows-2 mt-24">
-          <AboutMe />
-          <Hobbies />
-          
-            <Twitter />
-            <MusicPlayer
-              songName={songName}
-              artistName={artistsArray.join(", ")}
-              albumCover={artwork}
-              index={index}
-              prevSong={prevSong}
-              nextSong={nextSong}
-              preview={preview}
-              id={id}
-            />
-          </div>
+     
+      <div className="w-[100%] flex flex-row justify-center mt-64 mb-20">
+      <div className="w-[88%] min-h-[500px]  grid grid-cols-2 gap-4">
+  
+    <AboutMe />
+  
+  
+  
+  
+    <Twitter />
+  
+  
+    <MusicPlayer
+      songName={songName}
+      artistName={artistsArray.join(", ")}
+      albumCover={artwork}
+      index={index}
+      prevSong={prevSong}
+      nextSong={nextSong}
+      preview={preview}
+      id={id}
+    />
+  
+</div>
+
         </div>
 
-    </div>
+  
   );
 }

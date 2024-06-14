@@ -6,8 +6,9 @@ import { docs } from '@/app/works/api/firebase';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import {  Modal,   ModalContent,   ModalHeader,   ModalBody,   ModalFooter, useDisclosure} from "@nextui-org/modal";
+import Topography from '@/../public/Topographic 6.png'
 
-function App() {
+export default function Projects() {
   interface Docs {
     name:string,
     tools:[],
@@ -16,6 +17,8 @@ function App() {
 
   const [projects, setProjects] = useState<Docs[]>([]);
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
+
+  const catagory = ['All', 'Web', 'Cloud', 'Tools']
 
   useEffect(() => {
     async function fetchData() {
@@ -36,26 +39,24 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen p-8 ">
+    <div className='relative'>
+
       <header className="mb-8">
-        <h1 className="text-4xl font-bold mb-5">Works</h1>
-        <p className="text-gray-600">Repository of projects that I worked before.</p>
-        <nav className="mt-4">
-          <ul className="flex justify-between space-x-4 w-[100%]">
-            {['All', 'Website', 'Tool', 'Backend', 'Frontend', 'Cloud', 'API', 'Python', 'Database'].map((category) => (
-              <Button key={category}>
-                <li className="text-gray-700 cursor-pointer">{category}</li>
-              </Button>
-            ))}
-          </ul>
-        </nav>
+      <div className='mb-8 bg-gradient-to-br from-yellow-400 via-deep-pink-500 to-cyan-500 w-[168px] flex justify-center rounded-lg p-1'>
+        <p className="text-white font-semibold text-sm">VISIT MY PORTFOLIO</p>
+        </div>
+        <h1 className="text-4xl font-extrabold">WORKS</h1>
+        <div className='bg-[#FFC815] w-[50px] h-[10px] mt-2'></div>
+        <div className='flex gap-5 w-[100%] justify-center mt-9'>
+        {catagory.map(cat=>(<Button>{cat}</Button>))}
+        </div>
       </header>
       <main>
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-2 gap-4 -mt-3 mb-10">
           {projects.map((project, index) => (
-            <div key={index} className="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl hover:transform hover:scale-105 hover:z-10 transition duration-400 cursor-pointer">
+            <div key={index} className="flex items-center justify-between bg-white border-small border-customColor p-4 rounded-lg shadow-lg hover:shadow-xl hover:transform hover:scale-105 hover:z-10 transition duration-400 cursor-pointer">
               <div className="relative">
-                <Image src={'/logos/aws.svg'} alt={project.name} className="rounded-md object-cover" width={250} height={200} />
+                <Image src={'/logos/aws.svg'} alt={project.name} className="rounded-md object-cover" width={200} height={200} />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300 bg-black bg-opacity-50 rounded-md">
                   <Button 
                     radius="full"
@@ -103,14 +104,15 @@ function App() {
                   </Button>
                 </div>
               </div>
+             <div> 
               <h2 className="mt-4 text-lg font-bold">{project.name}</h2>
               <p className="text-gray-600">{project.tools}</p>
+             </div> 
             </div>
           ))}
         </div>
       </main>
-    </div>
+      </div>
   );
 }
 
-export default App;
