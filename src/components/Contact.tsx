@@ -25,19 +25,20 @@ export default function Contact(params: Params){
 
 
     function setInfo() {
-      // Assuming params.name and params.email are functions passed in correctly
       params.name(name);
       params.email(input);
       params.message(message)
-     // Call the sendEmail function from params
     }
   
     return (
-      <div className="flex items-center justify-center min-h-screen w-full">
-        <div className="w-full max-w-4xl p-8">
-          <h1 className="text-3xl font-bold mb-4">Contact</h1>
-          <p className="mb-6">Let's chat!</p>
-          <form onSubmit={params.sendEmail}>
+      <div className="flex items-center justify-center w-full">
+        <div className="w-full max-w-4xl">
+        <div className='mb-8 bg-gradient-to-br from-yellow-400 via-deep-pink-500 to-cyan-500 w-[168px] flex justify-center rounded-lg p-1'>
+        <p className="font-semibold">Lets chat!</p>
+        </div>
+          <h1 className="text-5xl font-extrabold">CONTACT ME</h1>
+          <div className='bg-[#FFC815] w-[50px] h-[10px] mt-2'></div>
+          <form onSubmit={params.sendEmail} className="mt-20">
             <div className="grid grid-cols-2 gap-6">
               <div className="mb-4">
                 <Input type="text" label="Name" placeholder="Enter your name" onValueChange={setName} />
@@ -59,12 +60,12 @@ export default function Contact(params: Params){
                 label="Query"
                 placeholder="Enter your description"
                 className="max-w-[832px]"
-                onValueChange={setMessage} // Assuming you want to capture message input
+                onValueChange={setMessage} 
               />
             </div>
             <div className="flex items-center justify-between">
               <Button
-                type="submit" // Change type to submit to trigger form submission
+                type="submit" 
                 className="bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 onPress={setInfo}
               >

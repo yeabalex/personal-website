@@ -1,13 +1,39 @@
 'use client'
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Contact from '@/components/Contact';
 import emailjs from '@emailjs/browser';
+import ImageComp from '@/components/Image';
+import NavBar from '@/components/Nav';
+import NavBar2 from '@/components/Nav2';
 
 const ContactMe: React.FC = () => {
   
   const [name, setName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [message, setMessage] = useState<string>('')
+  const [clicked, setClicked] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  function toggleClicked() {
+    setClicked(prev => !prev);
+    return clicked;
+  }
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0 && clicked) {
+        setIsScrolled(true);
+        setClicked(false);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [clicked]);
 
   function setN(n:string){
       setName(n)
@@ -42,14 +68,25 @@ const ContactMe: React.FC = () => {
 
 
   return (
-<>
+    <div
+      className={`bg-white flex flex-row justify-center items-center transition-all duration-500 ${
+        clicked && !isScrolled ? 'w-[88%] mt-80' : 'w-[100%]'
+      }`}
+    >
+      <NavBar toggle={toggleClicked} />
+      <NavBar2 clicked={clicked}/>
+      <div className="w-[100%] flex">
+            <ImageComp/>
+        <div className="flex-[0.64] mt-16 pl-14">
       <Contact 
         name={setN}
         email={setEmail}
         message={setM}
         sendEmail={sendEmail}
       />
-</>      
+        </div>
+      </div>
+    </div>     
   );
 };
 

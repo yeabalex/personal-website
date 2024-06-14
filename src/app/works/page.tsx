@@ -37,7 +37,7 @@ export default function Works(){
 
 
     return (
-        <div
+    <div
       className={`bg-white flex flex-row justify-center items-center transition-all duration-500 ${
         clicked && !isScrolled ? 'w-[88%] mt-80' : 'w-[100%]'
       }`}
