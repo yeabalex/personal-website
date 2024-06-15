@@ -1,8 +1,6 @@
-import React from 'react';
-import 'tailwindcss/tailwind.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGraduationCap, faBriefcase } from '@fortawesome/free-solid-svg-icons';
-import { Button } from '@nextui-org/react';
+
 
 const App = () => {
 
