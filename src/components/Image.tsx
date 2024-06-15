@@ -13,7 +13,7 @@ export default function ImageComponent() {
             const setOpacity = () => {
                 if (window.scrollY <= 672) {
                     const newOpacity = Math.min(100, window.scrollY / 10);
-                    setHeight(newOpacity * 8.5 + 18);
+                    setHeight(newOpacity * 28);
                     setOpct(newOpacity);
                 }
                 if (window.scrollY === 0) {
@@ -46,7 +46,7 @@ export default function ImageComponent() {
             color: 'rgba(255, 255, 255, 1)' 
           };
 
-    const finalHeight = pathname === '/' ? height : 585;
+    const finalHeight = pathname === '/' ? height : 1900;
     const finalWidth = pathname === '/' ? height / 1.5 : 755 / 1.6;
 
     return (
@@ -65,7 +65,7 @@ export default function ImageComponent() {
             <div className="relative inset-0 flex items-center justify-center">
                 <div className="text-white text-center p-4">
                     <div
-                        style={{ height: `${finalHeight}px` }}
+                        style={{ height: `${finalHeight}%` }}
                         className="absolute bg-white top-12 left-12 w-[2px] rounded-full"
                     ></div>
                     <h1 style={titleColor} className="text-4xl font-semibold mb-4 absolute left-16 top-[530px]">
