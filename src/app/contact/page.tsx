@@ -13,9 +13,11 @@ const ContactMe: React.FC = () => {
   const [message, setMessage] = useState<string>('')
   const [clicked, setClicked] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [finalMessage, setFianlMessage] = useState<string>("")
 
   function toggleClicked() {
     setClicked(prev => !prev);
+    window.scrollTo(0,0)
     return clicked;
   }
 
@@ -58,10 +60,10 @@ const ContactMe: React.FC = () => {
     .send('service_fi65v96', 'template_cfz7iio', templateParams, 'IjIoRVo3ZyRRuj3NN')
     .then(
       () => {
-        console.log('Email sent successfully!');
+        setFianlMessage('Email sent successfully! I will contact you soon.');
       },
       (error: string) => {
-        console.error('Email sending failed:', error);
+        setFianlMessage(`Email sending failed: ${error}`);
       }
     );
 };
@@ -83,6 +85,7 @@ const ContactMe: React.FC = () => {
         email={setEmail}
         message={setM}
         sendEmail={sendEmail}
+        finalMessage={finalMessage}
       />
         </div>
       </div>

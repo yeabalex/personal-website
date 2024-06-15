@@ -18,6 +18,7 @@ export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   function toggleClicked() {
+    window.scrollTo(0,0)
     setClicked(prev => !prev);
     return clicked;
   }
@@ -25,12 +26,14 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0 && clicked) {
+        
         setIsScrolled(true);
         setClicked(false);
       } else {
         setIsScrolled(false);
       }
     };
+    
 
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -50,8 +53,8 @@ export default function Home() {
         <ImageComp />
         <div className="flex-[0.64] mt-52">
           <div className="h-[210px] flex flex-col justify-between pl-24 relative">
-            <div className="absolute w-[36px] h-[36px] -top-2 left-[80px] rounded-full bg-gradient-to-br from-yellow-400 via-deep-pink-500 to-cyan-500 z-0"></div>
-            <div className="absolute w-[45px] h-[45px] top-[55px] right-[144px] rounded-full bg-gradient-to-br from-pink-400 via-deep-pink-500 to-cyan-500"></div>
+            <div className="absolute w-[36px] h-[36px] -top-2 left-[80px] rounded-full bg-[#1DB954] z-0"></div>
+            <div className="absolute w-[45px] h-[45px] top-[55px] right-[144px] rounded-full bg-[#1DB954]"></div>
             <p className="font-bold text-customColor z-10">HELLO, THERE</p>
             <h1 className="text-6xl m-0 font-extrabold text-customColor z-10">I&apos;M YEABSIRA ALEMU</h1>
             <div className="text-2xl opacity-70">
@@ -67,9 +70,9 @@ export default function Home() {
             <Button
               color="warning"
               variant="solid"
-              className="w-[163px] bg-gradient-to-r from-pink-300 to-purple-300"
+              className="w-[163px] bg-[#1DB954]"
             >
-              <p className="text-white font-bold">CONTACT ME</p>
+              <p className="text-white font-bold">DOWNLOAD CV</p>
             </Button>
             <Logos />
             <div className="flex items-center space-x-5 social-links mt-5 fixed bottom-5 right-10">

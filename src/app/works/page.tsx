@@ -16,6 +16,7 @@ export default function Works(){
   
     function toggleClicked() {
       setClicked(prev => !prev);
+      window.scrollTo(0,0)
       return clicked;
     }
   

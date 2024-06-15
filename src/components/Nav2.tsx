@@ -16,7 +16,7 @@ export default function NavBar2(params:Params) {
             <Link
                 href={el.href}
                 key={index}
-                className="relative text-white transition-colors duration-300 hover:text-yellow-400 after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-white after:left-0 after:bottom-[-5px] after:transition-all after:duration-300 hover:after:w-full"
+                className="relative text-white transition-colors duration-300 hover:text-[#1DB954] after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-white after:left-0 after:bottom-[-5px] after:transition-all after:duration-300 hover:after:w-full"
             >
                 {el.name}
             </Link>

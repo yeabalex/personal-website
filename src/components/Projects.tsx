@@ -41,13 +41,11 @@ export default function Projects() {
   return (
     <div className='relative'>
       <header className="mb-8">
-        <div className='mb-8 bg-gradient-to-br from-yellow-400 via-deep-pink-500 to-cyan-500 w-[168px] flex justify-center rounded-lg p-1'>
-          <p className="text-white font-semibold text-sm">VISIT MY PORTFOLIO</p>
-        </div>
-        <h1 className="text-4xl font-extrabold">WORKS</h1>
-        <div className='bg-[#FFC815] w-[50px] h-[10px] mt-2'></div>
+
+        <h1 className="text-4xl font-extrabold text-customColor">WORKS</h1>
+        <div className='bg-[#1DB954] w-[50px] h-[10px] mt-2 rounded full'></div>
         <div className='flex gap-5 w-[100%] justify-center mt-9'>
-          {catagory.map(cat => (<Button key={cat}>{cat}</Button>))}
+          {catagory.map(cat => (<Button className='text-customColor' key={cat}>{cat}</Button>))}
         </div>
       </header>
       <main>
@@ -68,7 +66,7 @@ export default function Projects() {
                       <ModalContent>
                         {(onClose) => (
                           <>
-                            <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader>
+                            <ModalHeader className="flex flex-col gap-1 text-customColor">Modal Title</ModalHeader>
                             <ModalBody>
                               <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -104,7 +102,7 @@ export default function Projects() {
                 </div>
               </div>
               <div>
-                <h2 className="mt-4 text-lg font-bold">{project.name}</h2>
+                <h2 className="mt-4 text-lg font-bold text-customColor">{project.name}</h2>
                 <p className="text-gray-600">{project.tools}</p>
               </div>
             </div>
