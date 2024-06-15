@@ -11,10 +11,10 @@ import { useState, useEffect } from "react";
 export default function NavBar(params: Params) {
    
   
-    const [icon,setIcon] = useState(null)
+    const [icon,setIcon] = useState(false)
 
     useEffect(()=>{
-        setIcon(params.toggle)
+        setIcon(prev=>!prev)
     },[params.toggle])
 
     const pathname = usePathname()
@@ -30,7 +30,7 @@ export default function NavBar(params: Params) {
             </div>    
             <div className="bg-customColor w-[80px] h-[60px] flex items-center justify-center">
                 <Button onPress={params.toggle} radius="full"
-            variant="light">{!icon?<FontAwesomeIcon icon={faBars} style={{color: "#ffffff",}}  size="2x"/>:<FontAwesomeIcon icon={faX} style={{color: "#ffffff",}} size="2x"/>}</Button>
+            variant="light">{icon?<FontAwesomeIcon icon={faBars} style={{color: "#ffffff",}}  size="2x"/>:<FontAwesomeIcon icon={faX} style={{color: "#ffffff",}} size="2x"/>}</Button>
             </div>
             </div>
         </nav>
