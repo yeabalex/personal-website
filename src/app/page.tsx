@@ -43,39 +43,11 @@ export default function Home() {
 
   return (
     <div
-      className={`bg-white flex flex-row justify-center items-center transition-all duration-500 ${
+      className={`bg-white flex flex-row justify-center items-center transition-all duration-500 relative ${
         clicked && !isScrolled ? 'w-[88%] mt-80' : 'w-[100%]'
       }`}
     >
-      <NavBar2 clicked={clicked}/>
-      <NavBar toggle={toggleClicked} />
-      <div className="w-[100%] flex">
-        <ImageComp />
-        <div className="flex-[0.64] mt-52">
-          <div className="h-[210px] flex flex-col justify-between pl-24 relative">
-            <div className="absolute w-[36px] h-[36px] -top-2 left-[80px] rounded-full bg-[#1DB954] z-0"></div>
-            <div className="absolute w-[45px] h-[45px] top-[55px] right-[144px] rounded-full bg-[#1DB954]"></div>
-            <p className="font-bold text-customColor z-10">HELLO, THERE</p>
-            <h1 className="text-6xl m-0 font-extrabold text-customColor z-10">I&apos;M YEABSIRA ALEMU</h1>
-            <div className="text-2xl opacity-70">
-              <Typewriter
-                words={['SOFTWARE ENGINEER', 'SOLUTION ARCHITECT', 'TECH ENTHUSIAST', 'PROGRAMMER']}
-                typeSpeed={200}
-                deleteSpeed={150}
-                delaySpeed={2000}
-                loop={0}
-                cursor={true}
-              />
-            </div>
-            <Button
-              color="warning"
-              variant="solid"
-              className="w-[163px] bg-[#1DB954]"
-            >
-              <p className="text-white font-bold">DOWNLOAD CV</p>
-            </Button>
-            <Logos />
-            <div className="flex items-center space-x-5 social-links mt-5 fixed bottom-5 right-10">
+                  <div className="flex items-center space-x-5 social-links mt-5 absolute bottom-5 right-10">
               <a
                 href="https://github.com/yeabsira-alemu"
                 target="_blank"
@@ -116,6 +88,35 @@ export default function Home() {
                 <FontAwesomeIcon icon={faEnvelope} style={{ width: '35px' }} size="1x" />
               </a>
             </div>
+      <NavBar2 clicked={clicked}/>
+      <NavBar toggle={toggleClicked} />
+      <div className="w-[100%] flex">
+        <ImageComp />
+        <div className="flex-[0.64] mt-52">
+          <div className="h-[210px] flex flex-col justify-between pl-24 relative">
+            <div className="absolute w-[36px] h-[36px] -top-2 left-[80px] rounded-full bg-[#1DB954] z-0"></div>
+            <div className="absolute w-[45px] h-[45px] top-[55px] right-[144px] rounded-full bg-[#1DB954]"></div>
+            <p className="font-bold text-customColor z-10">HELLO, THERE</p>
+            <h1 className="text-6xl m-0 font-extrabold text-customColor z-10">I&apos;M YEABSIRA ALEMU</h1>
+            <div className="text-2xl opacity-70">
+              <Typewriter
+                words={['SOFTWARE ENGINEER', 'SOLUTION ARCHITECT', 'TECH ENTHUSIAST', 'PROGRAMMER']}
+                typeSpeed={200}
+                deleteSpeed={150}
+                delaySpeed={2000}
+                loop={0}
+                cursor={true}
+              />
+            </div>
+            <Button
+              color="warning"
+              variant="solid"
+              className="w-[163px] bg-[#1DB954]"
+            >
+              <p className="text-white font-bold">DOWNLOAD CV</p>
+            </Button>
+            <Logos />
+
           </div>
           <About />
         </div>
