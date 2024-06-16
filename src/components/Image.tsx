@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image';
 import Img1 from '@/../public/pawel-czerwinski-CL3orMYdm-I-unsplash.jpg';
 import { useEffect, useState } from 'react';
@@ -57,10 +58,9 @@ export default function ImageComponent() {
             <Image
                 src={Img1}
                 alt="Alexis Larten"
-                layout="fill"
-                objectFit="cover"
-                className="w-auto h-full transform transition-transform duration-500"
-                style={{ transform: `scale(${scale})` }}
+                fill
+                style={{ objectFit: 'cover', transform: `scale(${scale})` }}
+                className="transition-transform duration-500"
             />
             <div 
                 style={overlayStyle} 
@@ -73,7 +73,7 @@ export default function ImageComponent() {
                         className="bg-white w-[2px] rounded-full"
                     ></div>
                     <h1 style={titleColor} className="text-4xl font-semibold mb-4">
-                        {pathname === '/' && window.scrollY>50 ? 'ABOUT ME' : pathname.toUpperCase()}
+                        {pathname === '/' && typeof window !== 'undefined' && window.scrollY > 50 ? 'ABOUT ME' : pathname.toUpperCase()}
                     </h1>
                     <div style={{ width: `${finalWidth}px` }} className="text-xl h-[2px] bg-white rounded-full"></div>
                 </div>
