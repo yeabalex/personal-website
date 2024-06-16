@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 
 export default function ImageComponent() {
     const [opct, setOpct] = useState(0);
-    const [height, setHeight] = useState(0);
+    const [height, setHeight] = useState;
     const [scale, setScale] = useState(1);
     const pathname = usePathname();
 
