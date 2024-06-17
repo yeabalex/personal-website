@@ -6,9 +6,17 @@ import { docs } from '@/app/works/api/firebase';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/modal";
-import Topography from '@/../public/Topographic 6.png'
+import styled from 'styled-components';
 
 export default function Projects() {
+
+  const ResponsiveGrid = styled.div
+  `
+    @media(max-width: 600px){
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+  `
+
   interface Docs {
     name: string,
     tools: string[],
@@ -45,11 +53,11 @@ export default function Projects() {
         <h1 className="text-4xl font-extrabold text-customColor">WORKS</h1>
         <div className='bg-[#1DB954] w-[50px] h-[10px] mt-2 rounded full'></div>
         <div className='flex gap-5 w-[100%] justify-center mt-9'>
-          {catagory.map(cat => (<Button className='text-customColor' key={cat}>{cat}</Button>))}
+          {catagory.map(cat => (<Button className='text-customColor' size='sm' key={cat}>{cat}</Button>))}
         </div>
       </header>
       <main>
-        <div className="grid grid-cols-2 gap-4 -mt-3 mb-10">
+        <ResponsiveGrid className="grid grid-cols-2 gap-4 -mt-3 mb-10">
           {projects.map((project) => (
             <div key={project.id} className="flex items-center justify-between bg-white border-small border-customColor p-4 rounded-lg shadow-lg hover:shadow-xl hover:transform hover:scale-105 hover:z-10 transition duration-400 cursor-pointer">
               <div className="relative">
@@ -107,7 +115,7 @@ export default function Projects() {
               </div>
             </div>
           ))}
-        </div>
+        </ResponsiveGrid>
       </main>
     </div>
   );

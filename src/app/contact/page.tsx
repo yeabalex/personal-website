@@ -5,8 +5,16 @@ import emailjs from '@emailjs/browser';
 import ImageComp from '@/components/Image';
 import NavBar from '@/components/Nav';
 import NavBar2 from '@/components/Nav2';
+import styled from 'styled-components'
 
 const ContactMe: React.FC = () => {
+
+  const ResponsiveContainer = styled.div
+  `
+    @media(max-width: 1001px){
+      flex-direction: column;
+    }
+  `
   
   const [name, setName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
@@ -77,7 +85,7 @@ const ContactMe: React.FC = () => {
     >
       <NavBar toggle={toggleClicked} />
       <NavBar2 clicked={clicked}/>
-      <div className="w-[100%] flex">
+      <ResponsiveContainer className="w-[100%] flex">
             <ImageComp/>
         <div className="flex-[0.64] mt-16 pl-14">
       <Contact 
@@ -88,7 +96,7 @@ const ContactMe: React.FC = () => {
         finalMessage={finalMessage}
       />
         </div>
-      </div>
+      </ResponsiveContainer>
     </div>     
   );
 };

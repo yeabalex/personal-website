@@ -1,9 +1,16 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGraduationCap, faBriefcase } from '@fortawesome/free-solid-svg-icons';
+import styled from 'styled-components';
 
 
 const App = () => {
 
+    const ResponsiveResume = styled.div
+    `
+      @media(max-width: 700px){
+        flex-direction: column;
+      }
+    `
 
     interface ExperienceItem {
         company: string;
@@ -79,7 +86,7 @@ const App = () => {
           <h1 className="text-4xl font-extrabold mt-1 text-customColor">MY RESUME</h1>
           <div className='bg-[#1DB954] w-[50px] h-[10px] rounded-full mt-2'></div>
         </div>
-        <div className="px-4 py-4 flex gap-16">
+        <ResponsiveResume className="px-4 py-4 flex gap-16">
           {sections.map((section) => (
             <div key={section.title} className="mb-8">
              <div className='flex items-center mb-4 gap-4 -ml-9'> 
@@ -108,7 +115,7 @@ const App = () => {
               </div>
             </div>
           ))}
-        </div>
+        </ResponsiveResume>
       </div>
     </div>
   );

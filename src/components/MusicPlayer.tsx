@@ -68,7 +68,7 @@ const SongName = styled.h1`
 `;
 
 const ArtistName = styled.p`
-  font-size: 0.875rem; /* sm */
+  font-size: 1rem; /* sm */
   opacity: 0.5;
 `;
 
@@ -89,6 +89,7 @@ const FixedDiv = styled.div`
     background-color: rgba(0, 0, 0, 0.1); /* data-[hover]:bg-foreground/10 */
   }
 `;
+
 
 
   const [liked, setLiked] = useState(false);
@@ -116,7 +117,7 @@ const FixedDiv = styled.div`
          <div className="relative"> 
           <Image
             alt="Album cover"
-            className="object-contain h-[230px] rounded-lg"
+            className="object-cover h-[230px] rounded-lg"
             shadow="md"
             src={params.albumCover}
             width="100%"
@@ -177,13 +178,6 @@ const FixedDiv = styled.div`
             variant="light"
             onPress={() => setLiked((v) => !v)}
           >
-            <a
-              href="https://open.spotify.com/playlist/37i9dQZF1DX4AyFl3yqHeK"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FontAwesomeIcon icon={faArrowUpRightFromSquare} style={{ color: "#1ed760" }} size="1x" />
-            </a>
           </Button>
         </FixedDiv>
       </ContentDiv>
