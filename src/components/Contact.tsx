@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Input, Textarea, Button } from "@nextui-org/react";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,6 +23,23 @@ export default function Contact(params: Params) {
   const [message, setMessage] = useState('');
   const [buttonText, setButtonText] = useState("Send");
   const [buttonDisabled, setButtonDisabled] = useState(false);
+  const [isResponsive, setIsResponsive] = useState(false);
+
+  useEffect(() => {
+  
+    const handleResize = () => {
+      setIsResponsive(window.innerWidth <= 1200);
+    };
+
+    
+    handleResize();
+
+    
+    window.addEventListener('resize', handleResize);
+
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   function isValid(input: string) {
     return input.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i) !== null;
@@ -59,11 +76,11 @@ export default function Contact(params: Params) {
         <h1 className="text-4xl font-extrabold">CONTACT ME</h1>
         <div className='bg-[#1DB954] w-[50px] h-[10px] mt-2 rounded-full'></div>
         <form onSubmit={params.sendEmail} className="mt-14">
-          <ResponsiveContact className="grid grid-cols-2 gap-6 pr-4">
+        <div className={`grid grid-cols-${isResponsive ? '1' : '2'} gap-6 pr-4`}>
             <div className="mb-4">
               <Input type="text" label="Name" placeholder="Enter your name" onValueChange={setName} />
             </div>
-            <div className="mb-4 pr-10">
+            <div className="mb-4">
               <Input
                 type="email"
                 label="Email"
@@ -73,19 +90,19 @@ export default function Contact(params: Params) {
                 className="w-full"
               />
             </div>
-          </ResponsiveContact>
+          </div>
           <div className="mb-4 pr-4">
             <Textarea
               label="Query"
               placeholder="Enter your description"
-              className="w-full pr-10"
+              className="w-full"
               onValueChange={setMessage}
             />
           </div>
-          <div className="flex items-center justify-between max-w-[450px] w-full">
+          <div className="flex flex-col justify-between min-w-5">
             <Button
               type="submit"
-              className="bg-[#1DB954] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-[#1DB954] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-5"
               onPress={setInfo}
               disabled={buttonDisabled}
             >
