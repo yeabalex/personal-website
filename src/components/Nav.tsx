@@ -7,9 +7,16 @@ import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import { usePathname } from "next/navigation";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
+import styled from "styled-components";
 
 export default function NavBar(params: Params) {
    
+    const ResponsiveNav = styled.nav
+    `
+    @media(max-width: 1001px){
+        width: 100%;
+    }
+    `
   
     const [icon,setIcon] = useState(false)
 
@@ -21,8 +28,8 @@ export default function NavBar(params: Params) {
     
 
     return (
-        <nav className="flex flex-row justify-end fixed top-0 right-0 w-[23.5%] h-[60px] z-50 items-center bg-[#1DB954] duration-300">
-            <div className="w-[94%] flex flex-row justify-between items-center">
+        <ResponsiveNav className="flex flex-row justify-end fixed top-0 right-0 w-[23.5%] h-[60px] z-50 items-center bg-[#1DB954] duration-300">
+            <div className="w-[97%] flex flex-row justify-between items-center">
             <div>
                 <Link href="/" className="font-bold text-xl text-white transform transition-transform duration-500 hover:scale-110 hover:text-gray-700">
                     {`yeabsira${pathname}`}
@@ -33,6 +40,6 @@ export default function NavBar(params: Params) {
             variant="light">{icon?<FontAwesomeIcon icon={faBars} style={{color: "#ffffff",}}  size="2x"/>:<FontAwesomeIcon icon={faX} style={{color: "#ffffff",}} size="2x"/>}</Button>
             </div>
             </div>
-        </nav>
+        </ResponsiveNav>
     );
 }

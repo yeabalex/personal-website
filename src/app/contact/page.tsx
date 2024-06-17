@@ -5,8 +5,10 @@ import emailjs from '@emailjs/browser';
 import ImageComp from '@/components/Image';
 import NavBar from '@/components/Nav';
 import NavBar2 from '@/components/Nav2';
+import styled from 'styled-components'
 
 const ContactMe: React.FC = () => {
+
   
   const [name, setName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
@@ -14,6 +16,23 @@ const ContactMe: React.FC = () => {
   const [clicked, setClicked] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [finalMessage, setFianlMessage] = useState<string>("")
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 1001);
+    };
+
+    // Initial check
+    handleResize();
+
+    // Event listener for resize
+    window.addEventListener('resize', handleResize);
+
+    // Clean up
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
 
   function toggleClicked() {
     setClicked(prev => !prev);
@@ -77,7 +96,7 @@ const ContactMe: React.FC = () => {
     >
       <NavBar toggle={toggleClicked} />
       <NavBar2 clicked={clicked}/>
-      <div className="w-[100%] flex">
+      <div className={`w-[100%] flex ${isSmallScreen ? 'flex-col' : ''}`}>
             <ImageComp/>
         <div className="flex-[0.64] mt-16 pl-14">
       <Contact 

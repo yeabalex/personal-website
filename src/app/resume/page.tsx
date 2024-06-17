@@ -7,8 +7,17 @@ import NavBar from '@/components/Nav';
 import NavBar2 from '@/components/Nav2';
 import ImageComp from '@/components/Image';
 import ResumePage from '@/components/Resume'
+import styled from 'styled-components'
 
 export default function Resume() {
+  
+  const ResponsiveContainer = styled.div
+  `
+    @media(max-width: 1001px){
+      flex-direction: column;
+    }
+  `
+
   const [clicked, setClicked] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -41,12 +50,12 @@ export default function Resume() {
   >
       <NavBar toggle={toggleClicked} />
       <NavBar2 clicked={clicked}/>
-  <div className="w-[100%] flex">  
+  <ResponsiveContainer className="w-[100%] flex">  
   <ImageComp/>
   <div className="flex-[0.64] pl-14">
         <ResumePage/>
     </div>
-    </div>
+  </ResponsiveContainer>
    </div> 
   );
 }

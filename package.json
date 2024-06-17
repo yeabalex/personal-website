@@ -38,7 +38,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-simple-typewriter": "^5.0.1",
-    "sharp": "^0.33.4"
+    "sharp": "^0.33.4",
+    "styled-components": "^6.1.11"
   },
   "devDependencies": {
     "@types/node": "^20",

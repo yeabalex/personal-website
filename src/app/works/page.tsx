@@ -7,9 +7,16 @@ import ImageComp from '@/components/Image'
 import NavBar from '@/components/Nav'
 import { useState, useEffect } from 'react'
 import NavBar2 from '@/components/Nav2'
+import styled from 'styled-components'
 
 export default function Works(){
-    const works = docs()
+
+  const ResponsiveContainer = styled.div
+  `
+    @media(max-width: 1001px){
+      flex-direction: column;
+    }
+  `
     const Projects = lazy(()=>import('@/components/Projects'))
     const [clicked, setClicked] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
@@ -45,14 +52,14 @@ export default function Works(){
     >
       <NavBar toggle={toggleClicked} />
       <NavBar2 clicked={clicked}/>
-      <div className="w-[100%] flex">
+      <ResponsiveContainer className="w-[100%] flex">
             <ImageComp/>
-        <div className="flex-[0.64] mt-16 pl-14">
+        <div className="flex-[0.64] mt-16 px-10">
         <Suspense fallback={<Spinner label="" color="default"/>}> 
                 <Projects/>
         </Suspense>
         </div>
-      </div>
+      </ResponsiveContainer>
     </div>
     )
 }
