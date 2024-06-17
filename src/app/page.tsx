@@ -21,6 +21,12 @@ export default function Home() {
     @media(max-width: 1096px){
       font-size: 50px;
     }
+    @media(max-width: 576px){
+      font-size: 40px
+    }
+    @media(max-width: 450px){
+      font-size: 35px
+    }
   `
 
   const ResponsiveContainer = styled.div
@@ -28,6 +34,16 @@ export default function Home() {
     @media(max-width: 1001px){
       flex-direction: column;
     }
+  `
+
+  const ResponsivePadding = styled.div
+  `
+    @media(max-width: 630px){
+      padding-left: 50px;
+    }
+    @media(max-width: 450px){
+      padding-left: 40px
+    }  
   `
 
 
@@ -110,7 +126,7 @@ export default function Home() {
       <ResponsiveContainer className="w-[100%] flex">
         <ImageComp />
         <div className="flex-[0.64] mt-52">
-          <div className="h-[210px] flex flex-col justify-between pl-24 relative">
+          <ResponsivePadding className="h-[210px] flex flex-col justify-between pl-24 relative">
             <div className="absolute w-[36px] h-[36px] -top-2 left-[80px] rounded-full bg-[#1DB954] z-0"></div>
             <div className="absolute w-[45px] h-[45px] top-[55px] right-[144px] rounded-full bg-[#1DB954]"></div>
             <p className="font-bold text-customColor z-10">HELLO, THERE</p>
@@ -134,7 +150,7 @@ export default function Home() {
             </Button>
             <Logos />
 
-          </div>
+          </ResponsivePadding>
           <About />
         </div>
       </ResponsiveContainer>

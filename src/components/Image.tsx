@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image';
-import Img1 from '@/../public/mohammad-hoseini-rad-FaUvZBs7TYA-unsplash.jpg';
+import Img1 from '@/../public/lea-l-q--99IzY8Lw-unsplash.jpg';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
@@ -10,7 +10,7 @@ export default function ImageComponent() {
     const [height, setHeight] = useState(0);
     const [scale, setScale] = useState(1);
     const [layout, setLayout] = useState(window.innerWidth<1001?"":"fill")
-    const [contStyle, setContStyle] = useState(window.innerWidth<1001?"relative h-[80%] top-0 overflow-hidden":"flex-[0.33] h-screen sticky top-0 overflow-hidden")
+    const [contStyle, setContStyle] = useState(window.innerWidth<1001?"relative h-[100%] top-0 overflow-hidden":"flex-[0.33] h-screen sticky top-0 overflow-hidden")
 
 
 

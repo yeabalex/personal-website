@@ -177,7 +177,7 @@ export default function About() {
   return (
      
       <div className="w-[100%] flex flex-row justify-center mt-64 mb-20">
-      <div className="w-[88%] min-h-[500px]  grid grid-cols-2 gap-4">
+      <div className="w-[88%] min-h-[500px] flex flex-col gap-4">
   
     <AboutMe />
   
