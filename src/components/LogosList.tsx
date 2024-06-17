@@ -1,7 +1,16 @@
 import Image from "next/image";
 import { Tooltip } from "@nextui-org/react";
+import styled from "styled-components";
 
 export default function Logos() {
+
+    const ResponsiveLogos = styled.div
+    `
+      @media(max-width: 700){
+        max-width: 450px;
+      }
+    `
+
   const logos = [
     { name: "React", src: "/logos/react.svg" },
     { name: "Next js", src: "/logos/next.svg" },
@@ -20,7 +29,7 @@ export default function Logos() {
   ];
   
   return (
-    <div className="max-w-[550px] flex flex-row gap-9 absolute top-64" id="logo-wrapper"> 
+    <ResponsiveLogos className="max-w-[550px] flex flex-row gap-9 absolute top-64" id="logo-wrapper"> 
       {logos.map((logo, index) => (
         <Tooltip key={index} content={logo.name}>
           <div className="flex justify-center items-center">
@@ -34,6 +43,6 @@ export default function Logos() {
           </div>
         </Tooltip>
       ))}
-    </div>
+    </ResponsiveLogos>
   );
 }

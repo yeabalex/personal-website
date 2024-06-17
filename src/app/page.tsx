@@ -12,8 +12,25 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import NavBar from '@/components/Nav';
 import ImageComp from '@/components/Image';
 import NavBar2 from '@/components/Nav2';
+import styled from 'styled-components'
 
 export default function Home() {
+
+  const H1 = styled.h1
+  `
+    @media(max-width: 1096px){
+      font-size: 50px;
+    }
+  `
+
+  const ResponsiveContainer = styled.div
+  `
+    @media(max-width: 1001px){
+      flex-direction: column;
+    }
+  `
+
+
   const [clicked, setClicked] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -90,14 +107,14 @@ export default function Home() {
             </div>
       <NavBar2 clicked={clicked}/>
       <NavBar toggle={toggleClicked} />
-      <div className="w-[100%] flex">
+      <ResponsiveContainer className="w-[100%] flex">
         <ImageComp />
         <div className="flex-[0.64] mt-52">
           <div className="h-[210px] flex flex-col justify-between pl-24 relative">
             <div className="absolute w-[36px] h-[36px] -top-2 left-[80px] rounded-full bg-[#1DB954] z-0"></div>
             <div className="absolute w-[45px] h-[45px] top-[55px] right-[144px] rounded-full bg-[#1DB954]"></div>
             <p className="font-bold text-customColor z-10">HELLO, THERE</p>
-            <h1 className="text-6xl m-0 font-extrabold text-customColor z-10">I&apos;M YEABSIRA ALEMU</h1>
+            <H1 className="text-6xl m-0 font-extrabold text-customColor z-10">I&apos;M YEABSIRA ALEMU</H1>
             <div className="text-2xl opacity-70">
               <Typewriter
                 words={['SOFTWARE ENGINEER', 'SOLUTION ARCHITECT', 'TECH ENTHUSIAST', 'PROGRAMMER']}
@@ -120,7 +137,7 @@ export default function Home() {
           </div>
           <About />
         </div>
-      </div>
+      </ResponsiveContainer>
     </div>
   );
 }

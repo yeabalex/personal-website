@@ -1,21 +1,42 @@
 'use client'
 import Image from 'next/image';
-import Img1 from '@/../public/pawel-czerwinski-CL3orMYdm-I-unsplash.jpg';
+import Img1 from '@/../public/mohammad-hoseini-rad-FaUvZBs7TYA-unsplash.jpg';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
+
 export default function ImageComponent() {
     const [opct, setOpct] = useState(0);
-    const [height, setHeight] = useState;
+    const [height, setHeight] = useState(0);
     const [scale, setScale] = useState(1);
+    const [layout, setLayout] = useState(window.innerWidth<1001?"":"fill")
+    const [contStyle, setContStyle] = useState(window.innerWidth<1001?"relative h-[80%] top-0 overflow-hidden":"flex-[0.33] h-screen sticky top-0 overflow-hidden")
+
+
+
+
     const pathname = usePathname();
+
+    useEffect(() => {
+        const handleResize = ()=> {
+          setLayout(window.innerWidth < 1001 ? "" : "fill");
+          setContStyle(window.innerWidth<1001?"relative h-[80%] top-0 overflow-hidden":"flex-[0.33] h-screen sticky top-0 overflow-hidden")
+        };
+    
+        window.addEventListener('resize', handleResize);
+    
+    
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []);
 
     useEffect(() => {
         if (pathname === '/') {
             const handleScroll = () => {
                 if (window.scrollY <= 672) {
                     const newOpacity = Math.min(100, window.scrollY / 10);
-                    setHeight(newOpacity * 8.5 + 18);
+                    setHeight(newOpacity * 9 + 18);
                     setOpct(newOpacity);
                     const newScale = 1 + (window.scrollY / 1000);
                     setScale(newScale);
@@ -54,12 +75,12 @@ export default function ImageComponent() {
     const finalWidth = pathname === '/' ? height / 1.6 : 755 / 1.6;
 
     return (
-        <div className="flex-[0.33] h-screen sticky top-0 overflow-hidden">
+        <div className={contStyle}>
             <Image
                 src={Img1}
                 alt="Alexis Larten"
-                fill
-                style={{ objectFit: 'cover', transform: `scale(${scale})` }}
+                layout={layout}
+                style={{ objectFit: 'cover', transform: `scale(${scale})`}}
                 className="transition-transform duration-500"
             />
             <div 
