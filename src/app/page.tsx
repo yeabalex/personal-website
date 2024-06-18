@@ -16,6 +16,23 @@ import styled from 'styled-components'
 
 export default function Home() {
 
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 1001);
+    };
+
+ 
+    handleResize();
+
+  
+    window.addEventListener('resize', handleResize);
+
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const H1 = styled.h1
   `
     @media(max-width: 1096px){
@@ -29,12 +46,7 @@ export default function Home() {
     }
   `
 
-  const ResponsiveContainer = styled.div
-  `
-    @media(max-width: 1001px){
-      flex-direction: column;
-    }
-  `
+
 
   const ResponsivePadding = styled.div
   `
@@ -123,10 +135,10 @@ export default function Home() {
             </div>
       <NavBar2 clicked={clicked}/>
       <NavBar toggle={toggleClicked} />
-      <ResponsiveContainer className="w-[100%] flex">
+      <div className={`w-[100%] flex ${isSmallScreen?"flex-col h-full":""}`}>
         <ImageComp />
-        <div className="flex-[0.64] mt-52">
-          <ResponsivePadding className="h-[210px] flex flex-col justify-between pl-24 relative">
+        <div className={`flex-[0.64] ${isSmallScreen?"mt-28":"mt-52"}`}>
+          <ResponsivePadding className="h-[230px] flex flex-col justify-between pl-24 relative">
             <div className="absolute w-[36px] h-[36px] -top-2 left-[80px] rounded-full bg-[#1DB954] z-0"></div>
             <div className="absolute w-[45px] h-[45px] top-[55px] right-[144px] rounded-full bg-[#1DB954]"></div>
             <p className="font-bold text-customColor z-10">HELLO, THERE</p>
@@ -153,7 +165,7 @@ export default function Home() {
           </ResponsivePadding>
           <About />
         </div>
-      </ResponsiveContainer>
+      </div>
     </div>
   );
 }

@@ -1,8 +1,10 @@
 'use client'
 import Image from 'next/image';
-import Img1 from '@/../public/mohammad-hoseini-rad-FaUvZBs7TYA-unsplash.jpg';
+import Img1 from '@/../public/emil-priver-_v9q7v7IX6g-unsplash.jpg';
 import { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation'
+import { faComputerMouse } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function ImageComponent() {
     const [opct, setOpct] = useState(0);
@@ -31,7 +33,7 @@ export default function ImageComponent() {
     useEffect(() => { 
         const handleResize = () => {
             setLayout(window.innerWidth < 1001 ? "" : "fill");
-            setContStyle(window.innerWidth < 1001 ? "relative h-[80%] top-0 overflow-hidden" : "flex-[0.33] h-screen sticky top-0 overflow-hidden");
+            setContStyle(window.innerWidth < 1001 ? "relative h-[100%] top-0 overflow-hidden" : "flex-[0.33] h-screen sticky top-0 overflow-hidden");
         };
 
         window.addEventListener('resize', handleResize);
@@ -75,12 +77,18 @@ export default function ImageComponent() {
 
     return (
         <div className={contStyle}>
+        
+           <div className={`flex flex-col absolute top-[50%] inset-0 gap-3 items-center`} style={{opacity: 1-opct}}> 
+            <FontAwesomeIcon icon={faComputerMouse} style={{color: "#ffffff", zIndex: 50}} size='2xl' />
+            <p className='z-50 text-white'>Scroll a little!</p>
+            </div>
+        
             <Image
                 src={Img1}
                 alt="Alexis Larten"
                 layout={layout}
                 style={{ objectFit: 'cover', transform: `scale(${scale})` }}
-                className="transition-transform duration-500"
+                className="transition-transform duration-500 h-[100vh]"
             />
             <div
                 style={overlayStyle}
@@ -90,10 +98,10 @@ export default function ImageComponent() {
                 <div className="text-white text-center p-4 flex flex-col items-center justify-center">
                     <div
                         style={{ minHeight: `${finalHeight}px` }}
-                        className="bg-white w-[2px] rounded-full"
+                        className="bg-white w-[1.5px] rounded-full"
                     ></div>
                     <h1 style={titleColor} className="text-4xl font-semibold mb-4">
-                        {typeof window !== 'undefined' && window.scrollY > 50 ? pathname.toUpperCase()==='/'?"/WELCOME":pathname.toUpperCase() : ""}
+                        {typeof window !== 'undefined' && window.scrollY > 50 ? pathname.toUpperCase()==='/'?"HOME":pathname.toUpperCase() : ""}
                     </h1>
                     <div style={{ width: `${finalWidth}px` }} className="text-xl h-[2px] bg-white rounded-full"></div>
                 </div>

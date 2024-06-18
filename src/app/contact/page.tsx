@@ -98,7 +98,7 @@ const ContactMe: React.FC = () => {
       <NavBar2 clicked={clicked}/>
       <div className={`w-[100%] flex ${isSmallScreen ? 'flex-col' : ''}`}>
             <ImageComp/>
-        <div className="flex-[0.64] mt-16 pl-14">
+        <div className="flex-[0.64] mt-16 pl-10 pr-5">
       <Contact 
         name={setN}
         email={setEmail}

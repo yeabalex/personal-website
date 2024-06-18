@@ -79,7 +79,7 @@ const App = () => {
       ];
 
   return (
-    <div className="min-h-screen p-8">
+    <div className="min-h-screen p-8 overflow-x-hidden">
       <div className="max-w-4xl mx-auto bg-white rounded-lg">
         <div className="px-6 py-4">
 

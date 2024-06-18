@@ -31,13 +31,13 @@ export default function NavBar(params: Params) {
         <ResponsiveNav className="flex flex-row justify-end fixed top-0 right-0 w-[23.5%] h-[60px] z-50 items-center bg-[#1DB954] duration-300">
             <div className="w-[97%] flex flex-row justify-between items-center">
             <div>
-                <Link href="/" className="font-bold text-xl text-white transform transition-transform duration-500 hover:scale-110 hover:text-gray-700">
-                    {`yeabsira${pathname}`}
+                <Link href={pathname} className="font-bold text-xl text-white transform transition-transform duration-500 hover:scale-110 hover:text-gray-700">
+                    {`${pathname==="/"?"YEABSIRA":pathname.toUpperCase()}`}
                 </Link>
             </div>    
             <div className="bg-customColor w-[80px] h-[60px] flex items-center justify-center">
                 <Button onPress={params.toggle} radius="full"
-            variant="light">{icon?<FontAwesomeIcon icon={faBars} style={{color: "#ffffff",}}  size="2x"/>:<FontAwesomeIcon icon={faX} style={{color: "#ffffff",}} size="2x"/>}</Button>
+            variant="light" className="text-white">CLICK</Button>
             </div>
             </div>
         </ResponsiveNav>

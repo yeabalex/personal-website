@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Card, CardBody } from "@nextui-org/card";
 import { Image } from "@nextui-org/image";
 import { Button } from "@nextui-org/button";
@@ -19,15 +19,30 @@ import styled from "styled-components";
 export default function MusicPlayer(params: Params) {
 //ssyles
 
-  const ResponsiveContainer = styled.div
-  `
-  @media(max-width: 576px){
-    margin-top: 8rem;
-    display: flex;
-    flex-direction: column;
-    padding-top: 4rem;
-  }
-  `
+
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 576);
+    };
+
+    // Initial check
+    handleResize();
+
+    // Event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const smallScreenStyles: React.CSSProperties = {
+    marginTop: '8rem',
+    display: 'flex',
+    flexDirection: 'column',
+    paddingTop: '4rem',
+  };
   const ParentDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -112,8 +127,11 @@ const FixedDiv = styled.div`
       className="overflow-scroll flex flex-row items-center col-span-2 justify-center border-none w-[full] h-[280px] relative bg-white hover:transform hover:scale-105 hover:z-10 transition duration-400 cursor-pointer"
       shadow="sm"
     >
-      <CardBody className="bg-white/70 p-4 rounded-lg overflow-scroll">
-        <ResponsiveContainer className="flex justify-evenly gap-16 items-center min-h-[215px] w-[100%]">
+      <CardBody className={`bg-white/70 p-4 rounded-lg overflow-scroll ${isSmallScreen?"mt-14":""}`}>
+      <div
+      className="flex justify-evenly gap-16 items-center min-h-[215px] w-[100%]"
+      style={isSmallScreen ? smallScreenStyles : {}}
+      >
          <div className="relative"> 
           <Image
             alt="Album cover"
@@ -182,7 +200,7 @@ const FixedDiv = styled.div`
         </FixedDiv>
       </ContentDiv>
     </ParentDiv>
-        </ResponsiveContainer>
+        </div>
         <audio ref={audioPlayer} src={params.preview}/>
       </CardBody>
     </Card>

@@ -34,7 +34,7 @@ export default function Logos() {
   ];
 
   return (
-    <ResponsiveLogos className="max-w-[500px] flex flex-row gap-9 absolute top-64" id="logo-wrapper">
+    <ResponsiveLogos className="max-w-[500px] flex flex-row gap-9 absolute top-72" id="logo-wrapper">
       {logos.map((logo, index) => (
         <Tooltip key={index} content={logo.name}>
           <div className="flex justify-center items-center">
