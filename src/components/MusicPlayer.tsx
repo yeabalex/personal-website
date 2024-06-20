@@ -27,13 +27,13 @@ export default function MusicPlayer(params: Params) {
       setIsSmallScreen(window.innerWidth <= 576);
     };
 
-    // Initial check
+ 
     handleResize();
 
-    // Event listener for window resize
+  
     window.addEventListener('resize', handleResize);
 
-    // Cleanup the event listener on component unmount
+
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
@@ -77,7 +77,7 @@ const NowPlayingDiv = styled.div`
 `;
 
 const SongName = styled.h1`
-  font-size: 1.875rem; /* 3xl */
+  font-size: 1.8rem; /* 3xl */
   font-weight: bold;
   line-height: 1.5rem; /* leading-6 */
 `;

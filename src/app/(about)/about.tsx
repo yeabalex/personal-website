@@ -81,7 +81,7 @@ export default function About() {
       try {
         const res = await axios({
           method: 'get',
-          url: 'https://api.spotify.com/v1/playlists/5h1oEk4W9KVMHkOd8WWWlC/tracks',
+          url: 'https://api.spotify.com/v1/playlists/7hkduGkMRHv6hy05nPdM45/tracks',
           headers: {
             Authorization: `Bearer ${token}`
           }
