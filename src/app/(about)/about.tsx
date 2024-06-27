@@ -162,7 +162,7 @@ export default function About() {
 
 
   if (!playlistInfo.length) {
-    return <div className="mt-10"><Spinner label="Loading..." color="current" /></div>;
+    return <div className="mt-32 flex justify-center"><Spinner label="Loading..." color="current" /></div>;
   }
 
   // Get current song information
@@ -182,7 +182,7 @@ export default function About() {
     <AboutMe />
   
   
-  
+    <Hobbies/>
   
     <Twitter />
   

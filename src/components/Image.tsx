@@ -98,10 +98,10 @@ export default function ImageComponent() {
                 <div className="text-white text-center p-4 flex flex-col items-center justify-center">
                     <div
                         style={{ minHeight: `${finalHeight}px` }}
-                        className="bg-white w-[1.5px] rounded-full"
+                        className="bg-white opacity-0 w-[1.5px] rounded-full"
                     ></div>
                     <h1 style={titleColor} className="text-4xl font-semibold mb-4">
-                        {typeof window !== 'undefined' && window.scrollY > 50 ? pathname.toUpperCase()==='/'?"HOME":pathname.toUpperCase() : ""}
+                        {typeof window !== 'undefined' && window.scrollY > 50 ? pathname.toUpperCase()==='/'?"ABOUT ME":pathname.toUpperCase() : ""}
                     </h1>
                     <div style={{ width: `${finalWidth}px` }} className="text-xl h-[2px] bg-white rounded-full"></div>
                 </div>

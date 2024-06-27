@@ -2,6 +2,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome, faBriefcase, faFileAlt, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 export default function NavBar2(params: Params) {
     const ResponsiveNav = styled.div`
@@ -15,10 +17,10 @@ export default function NavBar2(params: Params) {
     `;
 
     const links = [
-        { name: "home", href: "/" },
-        { name: "works", href: "/works" },
-        { name: "resume", href: "/resume" },
-        { name: "contact", href: "/contact" }
+        { name: "home", href: "/", icon: faHome },
+        { name: "works", href: "/works", icon: faBriefcase },
+        { name: "resume", href: "/resume", icon: faFileAlt },
+        { name: "contact", href: "/contact", icon: faEnvelope }
     ];
 
     const pathname = usePathname();
@@ -30,9 +32,9 @@ export default function NavBar2(params: Params) {
             <Link
                 href={el.href}
                 key={index}
-                className="relative text-white transition-colors duration-300 hover:text-[#1DB954] after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-white after:left-0 after:bottom-[-5px] after:transition-all after:duration-300 hover:after:w-full"
+                className="relative text-white transition-colors duration-300 hover:text-[#1DB954] after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-white after:left-0 after:bottom-[-5px] after:transition-all after:duration-300 hover:after:w-full flex items-center gap-4"
             >
-                {el.name}
+                <FontAwesomeIcon icon={el.icon} size="sm" style={{ color: "#fff" }} /> {el.name}
             </Link>
         );
     });
@@ -43,4 +45,3 @@ export default function NavBar2(params: Params) {
         </ResponsiveNav>
     );
 }
-

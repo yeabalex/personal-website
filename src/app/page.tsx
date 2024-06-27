@@ -13,11 +13,24 @@ import NavBar from '@/components/Nav';
 import ImageComp from '@/components/Image';
 import NavBar2 from '@/components/Nav2';
 import styled from 'styled-components'
+import Load from './loading';
 
 export default function Home() {
 
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    function toggleLoading() {
+      setLoading(false);
+    }
 
+    const timeoutId = setTimeout(toggleLoading, 3000);
+
+    // Cleanup function to clear the timeout if the component unmounts
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []);
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth <= 1001);
@@ -35,6 +48,12 @@ export default function Home() {
 
   const H1 = styled.h1
   `
+    @media(min-width: 1400px){
+      font-size: 70px;
+    }
+    @media(min-width: 1700px){
+      font-size: 90px;
+    }
     @media(max-width: 1096px){
       font-size: 50px;
     }
@@ -87,6 +106,7 @@ export default function Home() {
   }, [clicked]);
 
   return (
+
     <div
       className={`bg-white flex flex-row justify-center items-center transition-all duration-500 relative ${
         clicked && !isScrolled ? 'w-[88%] mt-80' : 'w-[100%]'

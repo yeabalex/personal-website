@@ -11,7 +11,7 @@ export default function Hobbies(){
     return(
         <Card
           isFooterBlurred
-          className="w-full h-[320px] hover:transform hover:scale-105 hover:z-10 transition duration-400"
+          className="w-full h-[280px] hover:transform hover:scale-105 hover:z-10 transition duration-400"
           id="hobbies"
         >
           <div className="w-full h-[240px] flex flex-col justify-evenly p-5 pl-8 items-center">
@@ -31,7 +31,7 @@ export default function Hobbies(){
               <p className="text-black text-tiny">Available on.</p>
               <p className="text-black text-tiny">Soundcloud.</p>
             </div>
-            <Button className="text-tiny" color="primary" radius="full" size="sm">
+            <Button className="text-tiny bg-[#1DB954] text-white"  radius="full" size="sm">
               Check out
             </Button>
           </CardFooter>
