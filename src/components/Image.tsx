@@ -12,8 +12,26 @@ export default function ImageComponent() {
     const [scale, setScale] = useState(1);
     const [layout, setLayout] = useState("");
     const [contStyle, setContStyle] = useState("");
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+
 
     const pathname = usePathname();
+
+    useEffect(() => {
+        const handleResize = () => {
+          setIsSmallScreen(window.innerWidth <= 1001);
+        };
+    
+     
+        handleResize();
+    
+      
+        window.addEventListener('resize', handleResize);
+    
+    
+        return () => window.removeEventListener('resize', handleResize);
+      }, []);
 
     useEffect(()=>{
         function applyStyle(){ 
@@ -78,10 +96,11 @@ export default function ImageComponent() {
     return (
         <div className={contStyle}>
         
-           <div className={`flex flex-col absolute top-[50%] inset-0 gap-3 items-center`} style={{opacity: 1-opct}}> 
+           {pathname==='/' && isSmallScreen?
+            <div className={`flex flex-col absolute top-[50%] inset-0 gap-3 items-center`} style={{opacity: 1-opct}}> 
             <FontAwesomeIcon icon={faComputerMouse} style={{color: "#ffffff", zIndex: 50}} size='2xl' />
             <p className='z-50 text-white'>Scroll a little!</p>
-            </div>
+            </div>:null}
         
             <Image
                 src={Img1}
@@ -101,7 +120,7 @@ export default function ImageComponent() {
                         className="bg-white opacity-0 w-[1.5px] rounded-full"
                     ></div>
                     <h1 style={titleColor} className="text-4xl font-semibold mb-4">
-                        {typeof window !== 'undefined' && window.scrollY > 50 ? pathname.toUpperCase()==='/'?"ABOUT ME":pathname.toUpperCase() : ""}
+                        {typeof window !== 'undefined' && window.scrollY > 50 ? pathname.toUpperCase()==='/'?"</>":pathname.toUpperCase() : ""}
                     </h1>
                     <div style={{ width: `${finalWidth}px` }} className="text-xl h-[2px] bg-white rounded-full"></div>
                 </div>

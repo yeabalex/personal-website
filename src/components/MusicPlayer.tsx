@@ -77,7 +77,7 @@ const NowPlayingDiv = styled.div`
 `;
 
 const SongName = styled.h1`
-  font-size: 1.8rem; /* 3xl */
+  font-size: 1.7rem; /* 3xl */
   font-weight: bold;
   line-height: 1.5rem; /* leading-6 */
 `;

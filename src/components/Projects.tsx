@@ -47,7 +47,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <div className='relative'>
+    <div className='relative mt-8'>
       <header className="mb-8">
 
         <h1 className="text-4xl font-extrabold text-customColor">WORKS</h1>

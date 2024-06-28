@@ -1,21 +1,63 @@
-import { Avatar } from "@nextui-org/avatar";
-import { Card } from "@nextui-org/card";
 
-export default function AboutMe(){
-    return(
-        <Card
-          isFooterBlurred
-          className="w-full h-[280px] col-span-1 bg-gradient-to-l from-[#1ED760]-200 via-fuchsia-200 to-stone-100 p-8 flex-col justify-evenly hover:transform hover:scale-105 hover:z-10 transition duration-400 overflow-scroll"
-        >
-          <div className="w-[100%] h-[50px] flex flex-row justify-center items-center">
+import styled from 'styled-components';
+import Image from 'next/image';
+import yeabsira from '@/../public/yeabsira.jpg'
+import Hobbies from './Hobbies';
+const AboutMe = () => {
 
-            <h4 className="font-extrabold text-customColor text-2xl">
-              About me
-            </h4>
+  const ResponsiveResume = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: column;
+
+    @media(min-width: 751px){
+      flex-direction: row;
+    }
+  `;
+
+  const StyledImageWrapper = styled.div`
+    width: 100%;
+    margin-bottom: 50px;
+    margin-left: 24px;
+
+    @media(min-width: 751px){
+      width: 50%;
+      margin-left: 0px;
+    }
+
+    img {
+      filter: grayscale(100%);
+      transition: filter 0.3s ease-in-out;
+    }
+
+    &:hover img {
+      filter: grayscale(0%);
+    }
+  `;
+
+  
+  return (
+    <div className="overflow-x-hidden w-[100%]">
+      <div className="max-w-4xl mx-auto bg-white rounded-lg">
+        <div className="py-4 flex flex-col gap-1">
+          <h1 className="text-4xl font-extrabold mt-1 text-customColor">ABOUT ME</h1>
+          <div className='bg-[#1DB954] w-[50px] h-[10px] rounded-full mt-2'></div>
+        </div>
+        <ResponsiveResume className="py-4">
+          <StyledImageWrapper>
+            <Image alt='yeabsira' objectFit='contain' src={yeabsira} />
+          </StyledImageWrapper>
+          <div className='w-[100%] pl-8'>
+          <h2 className="text-2xl font-bold mb-4">I am Yeabsira Alemu</h2>
+<p className="text-gray-600 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+
+            <Hobbies/>
           </div>
-          <p className="text-base opacity-80 mt-2">
-            My name is Yeabsira and I am passionate about tech, math, and engineering. I have experience in programming and cloud computing. Currently working around <span className="font-semibold">Firebase</span>, <span className="font-semibold">Next.js</span>, and <span className="font-semibold">Tailwind</span>.
-          </p>
-        </Card>
-    )
-}
+        </ResponsiveResume>
+      </div>
+    </div>
+  );
+};
+
+export default AboutMe;

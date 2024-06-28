@@ -9,15 +9,16 @@ export default function NavBar2(params: Params) {
     const ResponsiveNav = styled.div`
         @media (max-width: 700px) {
             flex-direction: column;
-            top: 100px;
+            top: 90px;
             gap: 24px;
             width: 19%;
-            font-size: 1.3rem;
+           
         }
     `;
 
     const links = [
         { name: "home", href: "/", icon: faHome },
+        { name: "about", href: "/about", icon: faHome },
         { name: "works", href: "/works", icon: faBriefcase },
         { name: "resume", href: "/resume", icon: faFileAlt },
         { name: "contact", href: "/contact", icon: faEnvelope }
@@ -32,9 +33,9 @@ export default function NavBar2(params: Params) {
             <Link
                 href={el.href}
                 key={index}
-                className="relative text-white transition-colors duration-300 hover:text-[#1DB954] after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-white after:left-0 after:bottom-[-5px] after:transition-all after:duration-300 hover:after:w-full flex items-center gap-4"
+                className="relative text-white transition-colors duration-300 hover:text-[#1DB954] after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-white after:left-0 after:bottom-[-5px] after:transition-all after:duration-300 hover:after:w-full flex items-center gap-4 text-2xl"
             >
-                <FontAwesomeIcon icon={el.icon} size="sm" style={{ color: "#fff" }} /> {el.name}
+               {el.name}
             </Link>
         );
     });

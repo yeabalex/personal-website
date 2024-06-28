@@ -71,7 +71,7 @@ export default function Contact(params: Params) {
   }
 
   return (
-    <div className="flex items-center justify-center w-full overflow-x-hidden">
+    <div className="flex items-center justify-center w-full overflow-x-hidden mt-8">
       <div className="w-full max-w-4xl px-4">
         <h1 className="text-4xl font-extrabold">CONTACT ME</h1>
         <div className='bg-[#1DB954] w-[50px] h-[10px] mt-2 rounded-full'></div>
@@ -110,7 +110,7 @@ export default function Contact(params: Params) {
             </Button>
             <div>{params.finalMessage}</div>
           </div>
-          <ResponsiveInfo className="flex flex-wrap gap-5 my-10 items-center pr-5">
+          <ResponsiveInfo className="flex gap-5 my-10 items-center">
             <div className="w-[230px] h-[170px] shadow-md border-customColor flex flex-col justify-around items-center">
               <div className="flex items-center"><FontAwesomeIcon icon={faLocationDot} style={{ color: "#1DB954" }} size="2x" /></div>
               <div>

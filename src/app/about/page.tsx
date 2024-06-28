@@ -8,7 +8,9 @@ import AboutMe from "@/components/AboutMe";
 import Hobbies from "@/components/Hobbies";
 import Twitter from "@/components/Twitter";
 import { Spinner } from "@nextui-org/spinner";
-import { Suspense } from "react";
+import NavBar from "@/components/Nav";
+import NavBar2 from "@/components/Nav2";
+import ImageComp from "@/components/Image";
 
 export default function About() {
   
@@ -42,6 +44,49 @@ export default function About() {
   const [token, setToken] = useState('');
   const [index, setIndex] = useState(0);
   const [songPosition, setSongPosition] = useState<SongPosition>({ backward: 0, forward: 0 });
+  const [clicked, setClicked] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 1001);
+    };
+
+ 
+    handleResize();
+
+  
+    window.addEventListener('resize', handleResize);
+
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  function toggleClicked() {
+    window.scrollTo(0,0)
+    setClicked(prev => !prev);
+    return clicked;
+  }
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0 && clicked) {
+        
+        setIsScrolled(true);
+        setClicked(false);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [clicked]);
 
   const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
   const clientSecret = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET;
@@ -176,32 +221,37 @@ export default function About() {
   const id: string = playlistInfo[index].track.id
   return (
      
-      <div className="w-[100%] flex flex-row justify-center mt-64 mb-20">
-      <div className="w-[88%] min-h-[500px] flex flex-col gap-8">
-  
-    <AboutMe />
-  
-  
-    <Hobbies/>
-  
-    <Twitter />
-  
-  
-    <MusicPlayer
-      songName={songName}
-      artistName={artistsArray.join(", ")}
-      albumCover={artwork}
-      index={index}
-      prevSong={prevSong}
-      nextSong={nextSong}
-      preview={preview}
-      id={id}
-    />
-  
+    <div
+    className={`bg-white flex flex-row justify-center items-center transition-all duration-500 ${
+      clicked && !isScrolled ? 'w-[88%] mt-80' : 'w-[100%]'
+    }`}
+  >  
+      <NavBar toggle={toggleClicked} />
+      <NavBar2 clicked={clicked}/>
+          <div className={`w-[100%] flex ${isSmallScreen ? 'flex-col' : ''}`}>
+                {isSmallScreen?null:<ImageComp/>}
+            <div className="flex-[0.64] mt-16 pr-5">
+
+              <div className="w-[100%] flex flex-row justify-center mb-20">
+                <div className="w-[88%] min-h-[500px] flex flex-col gap-8">  
+                  <AboutMe />
+              
+                  <Twitter />
+                  <MusicPlayer
+                    songName={songName}
+                    artistName={artistsArray.join(", ")}
+                    albumCover={artwork}
+                    index={index}
+                    prevSong={prevSong}
+                    nextSong={nextSong}
+                    preview={preview}
+                    id={id}
+                  />
+                </div>
+              </div>
+              </div>
+            </div>
 </div>
-
-        </div>
-
   
   );
 }

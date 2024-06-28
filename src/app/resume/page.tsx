@@ -20,6 +20,22 @@ export default function Resume() {
 
   const [clicked, setClicked] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 1001);
+    };
+
+ 
+    handleResize();
+
+  
+    window.addEventListener('resize', handleResize);
+
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   function toggleClicked() {
     setClicked(prev => !prev);
@@ -51,7 +67,7 @@ export default function Resume() {
       <NavBar toggle={toggleClicked} />
       <NavBar2 clicked={clicked}/>
   <ResponsiveContainer className="w-[100%] flex">  
-  <ImageComp/>
+  {isSmallScreen?null:<ImageComp/>}
   <div className="flex-[0.64] pl-14">
         <ResumePage/>
     </div>

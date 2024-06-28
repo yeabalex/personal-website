@@ -37,7 +37,7 @@ export default function NavBar(params: Params) {
             </div>    
             <div className="bg-customColor w-[80px] h-[60px] flex items-center justify-center">
                 <Button onPress={params.toggle} radius="full"
-            variant="light" className="text-white">CLICK</Button>
+            variant="light" className="text-white">{icon?<FontAwesomeIcon icon={faBars} size="2x"/>:<FontAwesomeIcon icon={faX} size="2x"/>}</Button>
             </div>
             </div>
         </ResponsiveNav>

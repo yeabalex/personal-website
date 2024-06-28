@@ -79,18 +79,18 @@ const App = () => {
       ];
 
   return (
-    <div className="min-h-screen p-8 overflow-x-hidden">
+    <div className="min-h-screen pt-8 overflow-x-hidden mt-8">
       <div className="max-w-4xl mx-auto bg-white rounded-lg">
-        <div className="px-6 py-4">
+        <div className="px-1 py-4">
 
           <h1 className="text-4xl font-extrabold mt-1 text-customColor">MY RESUME</h1>
           <div className='bg-[#1DB954] w-[50px] h-[10px] rounded-full mt-2'></div>
         </div>
-        <ResponsiveResume className="px-4 py-4 flex gap-16">
+        <ResponsiveResume className="px-10 py-4 flex gap-16">
           {sections.map((section) => (
             <div key={section.title} className="mb-8">
              <div className='flex items-center mb-4 gap-4 -ml-9'> 
-              <div className='bg-[#1DB954] w-[20px] h-[20px] rounded-full'></div>
+              <div className='bg-[#1DB954] w-[15px] h-[15px] rounded-full'></div>
               <h3 className="text-2xl font-bold text-customColor">{section.title}</h3>
               </div>
               <div className="space-y-4">
