@@ -126,7 +126,7 @@ export default function About() {
       try {
         const res = await axios({
           method: 'get',
-          url: 'https://api.spotify.com/v1/playlists/7hkduGkMRHv6hy05nPdM45/tracks',
+          url: 'https://api.spotify.com/v1/playlists/37i9dQZF1DX82pCGH5USnM/tracks',
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -236,7 +236,6 @@ export default function About() {
                 <div className="w-[88%] min-h-[500px] flex flex-col gap-8">  
                   <AboutMe />
               <div className="pl-8">
-                  <Twitter />
                   <MusicPlayer
                     songName={songName}
                     artistName={artistsArray.join(", ")}

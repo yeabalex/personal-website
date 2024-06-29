@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image';
-import Img1 from '@/../public/emil-priver-_v9q7v7IX6g-unsplash.jpg';
+import Img1 from '@/../public/riccardo-oliva-C5DLhUkEWfM-unsplash(1).jpg';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation'
 import { faComputerMouse } from '@fortawesome/free-solid-svg-icons';

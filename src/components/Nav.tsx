@@ -28,16 +28,16 @@ export default function NavBar(params: Params) {
     
 
     return (
-        <ResponsiveNav className="flex flex-row justify-end fixed top-0 right-0 w-[23.5%] h-[60px] z-50 items-center bg-[#1DB954] duration-300">
+        <ResponsiveNav className="flex flex-row justify-end fixed top-0 right-0 w-[23.5%] h-[60px] z-50 items-center bg-[#14242E] duration-300">
             <div className="w-[97%] flex flex-row justify-between items-center">
             <div>
                 <Link href={pathname} className="font-bold text-xl text-white transform transition-transform duration-500 hover:scale-110 hover:text-gray-700">
                     {`${pathname==="/"?"YEABSIRA":pathname.toUpperCase()}`}
                 </Link>
             </div>    
-            <div className="bg-customColor w-[80px] h-[60px] flex items-center justify-center">
+            <div className="bg-[#D6DAD4] w-[80px] h-[60px] flex items-center justify-center">
                 <Button onPress={params.toggle} radius="full"
-            variant="light" className="text-white">NAVIGATE</Button>
+            variant="light" className="text-[#14242E]">NAV</Button>
             </div>
             </div>
         </ResponsiveNav>

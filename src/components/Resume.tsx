@@ -40,7 +40,7 @@ const App = () => {
                 duration: 'OCT 2015 - JUNE 2016',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.',
                 icon: (
-                    <FontAwesomeIcon icon={faGraduationCap} style={{color: "#000000",}} size='1x'/>
+                    <FontAwesomeIcon icon={faGraduationCap} style={{color: "#D6DAD4",}} size='1x'/>
                 )
               },
               {
@@ -48,7 +48,7 @@ const App = () => {
                 duration: 'OCT 2015 - JUNE 2016',
                 description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.',
                 icon: (
-                    <FontAwesomeIcon icon={faGraduationCap} style={{color: "#000000",}} size='1x'/>
+                    <FontAwesomeIcon icon={faGraduationCap} style={{color: "#D6DAD4",}} size='1x'/>
                 )
               }
             ]
@@ -62,7 +62,7 @@ const App = () => {
               duration: 'OCT 2015 - JUNE 2016',
               description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.',
               icon: (
-                <FontAwesomeIcon icon={faBriefcase} style={{color: "#000000",}} size='1x'/>
+                <FontAwesomeIcon icon={faBriefcase} style={{color: "#D6DAD4",}} size='1x'/>
               )
             },
             {
@@ -70,7 +70,7 @@ const App = () => {
               duration: 'OCT 2015 - JUNE 2016',
               description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.',
               icon: (
-                <FontAwesomeIcon icon={faBriefcase} style={{color: "#000000",}} size='1x'/>
+                <FontAwesomeIcon icon={faBriefcase} style={{color: "#D6DAD4",}} size='1x'/>
               )
             }
           ]
@@ -83,22 +83,22 @@ const App = () => {
       <div className="max-w-4xl mx-auto bg-white rounded-lg">
         <div className="px-1 py-4">
 
-          <h1 className="text-4xl font-extrabold mt-1 text-customColor">MY RESUME</h1>
-          <div className='bg-[#1DB954] w-[50px] h-[10px] rounded-full mt-2'></div>
+          <h1 className="text-4xl font-extrabold mt-1 text-[#14242E]">MY RESUME</h1>
+          <div className='bg-[#14242E] w-[50px] h-[10px] rounded-full mt-2'></div>
         </div>
         <ResponsiveResume className="px-10 py-4 flex gap-16">
           {sections.map((section) => (
             <div key={section.title} className="mb-8">
              <div className='flex items-center mb-4 gap-4 -ml-9'> 
-              <div className='bg-[#1DB954] w-[15px] h-[15px] rounded-full'></div>
-              <h3 className="text-2xl font-bold text-customColor">{section.title}</h3>
+              <div className='bg-[#14242E] w-[15px] h-[15px] rounded-full'></div>
+              <h3 className="text-2xl font-bold text-[#14242E]">{section.title}</h3>
               </div>
               <div className="space-y-4">
                 {section.items.map((item, index) => (
-                  <div key={index} className="p-4 rounded-lg shadow border-customColor">
+                  <div key={index} className="p-4 rounded-lg shadow border-[#14242E]">
                     <div className="flex items-center mb-2">
                       <div className="flex-shrink-0">
-                        <div className="bg-[#1DB954] p-2 rounded-full w-[35px] h-[35px] flex items-center justify-center">
+                        <div className="bg-[#14242E] p-2 rounded-full w-[35px] h-[35px] flex items-center justify-center">
                           {item.icon}
                         </div>
                       </div>

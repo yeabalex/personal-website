@@ -50,7 +50,7 @@ export default function MusicPlayer(params: Params) {
   width: 40%;
 
   @media (max-width: 576px) {
-    width: 95%;
+    width: 100%;
   }
 `;
 
@@ -61,6 +61,7 @@ const ContentDiv = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   margin-top: 1rem;
+  width: 100%;
 `;
 
 const NowPlayingDiv = styled.div`
@@ -77,13 +78,13 @@ const NowPlayingDiv = styled.div`
 `;
 
 const SongName = styled.h1`
-  font-size: 1.7rem; /* 3xl */
+  font-size: 1.5rem; /* 3xl */
   font-weight: bold;
   line-height: 1.5rem; /* leading-6 */
 `;
 
 const ArtistName = styled.p`
-  font-size: 1rem; /* sm */
+  font-size: 0.9rem; /* sm */
   opacity: 0.5;
 `;
 
@@ -175,29 +176,19 @@ const FixedDiv = styled.div`
           </div>
           <ParentDiv>
       <ContentDiv>
-        <div>
+        <div className="flex justify-between w-full">
           <FontAwesomeIcon icon={faSpotify} style={{ color: "#1ed760" }} size="2x" />
-        </div>
-        <div className="flex flex-col gap-2">
           <NowPlayingDiv>
             <div>
               <Lottie animationData={waves} />
             </div>
-            <p className="text-base text-[#1ED760] font-semibold">Now playing</p>
+            <p className="text-base text-[#1ED760] font-semibold">My Favorite</p>
           </NowPlayingDiv>
+        </div>
+        <div className="flex flex-col gap-2 w-full">
           <SongName>{params.songName}</SongName>
           <ArtistName>{params.artistName}</ArtistName>
         </div>
-        <FixedDiv>
-          <Button
-            isIconOnly
-            className="icon-button"
-            radius="full"
-            variant="light"
-            onPress={() => setLiked((v) => !v)}
-          >
-          </Button>
-        </FixedDiv>
       </ContentDiv>
     </ParentDiv>
         </div>

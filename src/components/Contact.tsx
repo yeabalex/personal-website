@@ -74,7 +74,7 @@ export default function Contact(params: Params) {
     <div className="flex items-center justify-center w-full overflow-x-hidden mt-8">
       <div className="w-full max-w-4xl px-4">
         <h1 className="text-4xl font-extrabold">CONTACT ME</h1>
-        <div className='bg-[#1DB954] w-[50px] h-[10px] mt-2 rounded-full'></div>
+        <div className='bg-[#14242E] w-[50px] h-[10px] mt-2 rounded-full'></div>
         <form onSubmit={params.sendEmail} className="mt-14">
         <div className={`grid grid-cols-${isResponsive ? '1' : '2'} gap-6 pr-4`}>
             <div className="mb-4">
@@ -102,7 +102,7 @@ export default function Contact(params: Params) {
           <div className="flex flex-col justify-between min-w-5">
             <Button
               type="submit"
-              className="bg-[#1DB954] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-5"
+              className="bg-[#14242E] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-5"
               onPress={setInfo}
               disabled={buttonDisabled}
             >
@@ -112,21 +112,21 @@ export default function Contact(params: Params) {
           </div>
           <ResponsiveInfo className="flex gap-5 my-10 items-center">
             <div className="w-[230px] h-[170px] shadow-md border-customColor flex flex-col justify-around items-center">
-              <div className="flex items-center"><FontAwesomeIcon icon={faLocationDot} style={{ color: "#1DB954" }} size="2x" /></div>
+              <div className="flex items-center"><FontAwesomeIcon icon={faLocationDot} style={{ color: "#14242E" }} size="2x" /></div>
               <div>
                 <h1>Address</h1>
                 <p>Addis Ababa, Ethiopia</p>
               </div>
             </div>
             <div className="w-[230px] h-[170px] shadow-md border-customColor flex flex-col justify-around items-center">
-              <div className="flex items-center"><FontAwesomeIcon icon={faPhone} style={{ color: "#1DB954" }} size="2x" /></div>
+              <div className="flex items-center"><FontAwesomeIcon icon={faPhone} style={{ color: "#14242E" }} size="2x" /></div>
               <div>
                 <h1>Phone</h1>
                 <p>+123456789</p>
               </div>
             </div>
             <div className="w-[230px] h-[170px] shadow-md border-customColor flex flex-col justify-around items-center">
-              <div className="flex items-center"><FontAwesomeIcon icon={faEnvelope} style={{ color: "#1DB954" }} size="2x" /></div>
+              <div className="flex items-center"><FontAwesomeIcon icon={faEnvelope} style={{ color: "#14242E" }} size="2x" /></div>
               <div>
                 <h1>Email</h1>
                 <p>example@example.com</p>

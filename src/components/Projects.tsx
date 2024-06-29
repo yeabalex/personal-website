@@ -51,7 +51,7 @@ export default function Projects() {
       <header className="mb-8">
 
         <h1 className="text-4xl font-extrabold text-customColor">WORKS</h1>
-        <div className='bg-[#1DB954] w-[50px] h-[10px] mt-2 rounded full'></div>
+        <div className='bg-[#14242E] w-[50px] h-[10px] mt-2 rounded full'></div>
         <div className='flex gap-5 w-[100%] justify-center mt-9'>
           {catagory.map(cat => (<Button className='text-customColor' size='sm' key={cat}>{cat}</Button>))}
         </div>
