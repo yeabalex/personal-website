@@ -12,12 +12,22 @@ import NavBar from '@/components/Nav';
 import ImageComp from '@/components/Image';
 import NavBar2 from '@/components/Nav2';
 import styled from 'styled-components'
-import Load from './loading';
 
 export default function Home() {
 
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [loading, setLoading] = useState(true);
+
+  const onButtonClick = () => {
+    const pdfUrl = "Sample.pdf";
+    const link = document.createElement("a");
+    link.href = pdfUrl;
+    link.download = "document.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+};
+
   useEffect(() => {
     function toggleLoading() {
       setLoading(false);
@@ -68,11 +78,15 @@ export default function Home() {
 
   const ResponsivePadding = styled.div
   `
+    padding-left: 90px;
+    @media(max-width: 1000px){
+      padding-left: 0px;
+    }
     @media(max-width: 630px){
-      padding-left: 50px;
+      padding-left: 30px;
     }
      @media(max-width: 576px){
-      height: 420px;
+    
     } 
     @media(max-width: 450px){
       padding-left: 40px
@@ -116,15 +130,15 @@ export default function Home() {
     >
       <NavBar2 clicked={clicked}/>
       <NavBar toggle={toggleClicked} />
-      <div className={`w-[100%] flex ${isSmallScreen?"flex-col h-full":""}`}>
+      <div className={`w-[100%] flex ${isSmallScreen?"flex-col h-full":""} items-center justify-start`}>
         <ImageComp />
-        <div className={`flex-[0.64] ${isSmallScreen?"mt-28":"mt-52"}`}>
-          <ResponsivePadding className="h-[280px] flex flex-col justify-between pl-24 relative">
+        <div className={`flex-[0.64] ${isSmallScreen?"mt-28":null}`}>
+          <ResponsivePadding className="min-h-[300px] flex flex-col justify-between relative">
             <div className="absolute w-[36px] h-[36px] -top-2 left-[80px] rounded-full bg-[#1DB954] z-0"></div>
             <div className="absolute w-[45px] h-[45px] top-[55px] right-[144px] rounded-full bg-[#1DB954]"></div>
             <p className="font-bold text-customColor z-10">HELLO, THERE</p>
-            <H1 className="text-6xl m-0 font-extrabold text-customColor z-10">I&apos;M YEABSIRA ALEMU</H1>
-            <div className="text-2xl opacity-70">
+            <H1 className="text-6xl m-0 font-black text-customColor z-10">I&apos;M YEABSIRA ALEMU</H1>
+            <div className="text-xl opacity-70 text-customColor mb-3">
               <Typewriter
                 words={['SOFTWARE ENGINEER', 'SOLUTION ARCHITECT', 'TECH ENTHUSIAST', 'PROGRAMMER']}
                 typeSpeed={200}
@@ -134,15 +148,19 @@ export default function Home() {
                 cursor={true}
               />
             </div>
+
             <Button
               color="warning"
               variant="solid"
-              className="w-[163px] bg-[#1DB954]"
+              className="w-[163px] h-[45px] bg-[#1DB954]"
+              onPress={onButtonClick}
+              radius='sm'
             >
-              <p className="text-white font-bold">DOWNLOAD CV</p>
+              <p className="text-white font-bold">RESUME/CV</p>
             </Button>
+
             <div className='mt-8'>
-            <Logos />
+            
             </div>
 
           </ResponsivePadding>

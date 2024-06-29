@@ -40,7 +40,7 @@ const AboutMe = () => {
   return (
     <div className="overflow-x-hidden w-[100%]">
       <div className="max-w-4xl mx-auto bg-white rounded-lg">
-        <div className="py-4 flex flex-col gap-1">
+        <div className="py-4 flex flex-col gap-1 justify-center">
           <h1 className="text-4xl font-extrabold mt-1 text-customColor">ABOUT ME</h1>
           <div className='bg-[#1DB954] w-[50px] h-[10px] rounded-full mt-2'></div>
         </div>

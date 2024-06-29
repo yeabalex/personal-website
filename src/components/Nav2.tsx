@@ -41,7 +41,7 @@ export default function NavBar2(params: Params) {
     });
 
     return (
-        <ResponsiveNav className={`flex text-white fixed top-40 w-[60%] justify-between text-3xl animate-slide-in ${params.clicked ? "" : "hidden duration-300"} justify-center`}>
+        <ResponsiveNav className={`flex text-white fixed top-40 w-[60%] justify-between text-3xl animate-slide-in ${params.clicked ? "" : "hidden"} justify-center`}>
             {mappedLinks}
         </ResponsiveNav>
     );

@@ -1,8 +1,6 @@
 import { Card } from "@nextui-org/card";
 import Image from "next/image";
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPen } from "@fortawesome/free-solid-svg-icons";
 
 
 export default function Hobbies() {
@@ -18,8 +16,6 @@ export default function Hobbies() {
   const hobbies = [
     { name: "Drum Machine", id: "1", icon: "/logos/drum-machine.png", description: 'Enjoy creating beats and rhythms with virtual or physical drum machines.' },
     { name: "Geoguesser", id: "2", icon: "/logos/country-location-icon.svg", description: 'Guess locations around the world using clues from street views.' },
-    { name: "Cycling", id: "3", icon: "/logos/bike-svgrepo-com.svg", description: 'Explore the outdoors and stay fit while cycling through various landscapes.' },
-    { name: "Blogging", id: "4", icon: "/logos/blog.png", description: 'Share thoughts, experiences, and expertise on a personal or professional blog.' }
   ];
 
   return (

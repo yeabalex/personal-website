@@ -235,7 +235,7 @@ export default function About() {
               <div className="w-[100%] flex flex-row justify-center mb-20">
                 <div className="w-[88%] min-h-[500px] flex flex-col gap-8">  
                   <AboutMe />
-              
+              <div className="pl-8">
                   <Twitter />
                   <MusicPlayer
                     songName={songName}
@@ -247,6 +247,7 @@ export default function About() {
                     preview={preview}
                     id={id}
                   />
+                </div>  
                 </div>
               </div>
               </div>
