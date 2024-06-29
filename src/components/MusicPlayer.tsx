@@ -128,7 +128,7 @@ const FixedDiv = styled.div`
       className="overflow-scroll flex flex-row items-center col-span-2 justify-center border-none w-[full] h-[280px] relative bg-white hover:transform hover:scale-105 hover:z-10 transition duration-400 cursor-pointer"
       shadow="sm"
     >
-      <CardBody className={`bg-white/70 p-4 rounded-lg overflow-scroll ${isSmallScreen?"mt-14":""}`}>
+      <CardBody className={`bg-white/70 p-4 rounded-lg overflow-scroll ${isSmallScreen?"mt-2":""}`}>
       <div
       className="flex justify-evenly gap-16 items-center min-h-[215px] w-[100%]"
       style={isSmallScreen ? smallScreenStyles : {}}
