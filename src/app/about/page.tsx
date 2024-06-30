@@ -236,7 +236,7 @@ export default function About() {
             <div className="flex-[0.64] mt-16 pr-5">
 
               <div className="w-[100%] flex flex-row justify-center mb-20">
-              <div className={`w-[88%] min-h-[500px] flex flex-col gap-8 ${isSmallScreen?'mt-10':''}`}>  
+              <div className={`w-[88%] min-h-[500px] flex flex-col gap-8 ${isSmallScreen?'mt-5':''}`}>  
                   <AboutMe />
               <div className="pl-8">
                   <MusicPlayer

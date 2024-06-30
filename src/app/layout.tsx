@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Loading....</title>
+        <title>Yeabsira</title>
         <link rel="icon" href='/yabicon.ico' />
       </head>
       <body className={`${DMSANS.className} ${loading ? "bg-white" : ""}`}>
