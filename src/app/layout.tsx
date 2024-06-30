@@ -1,30 +1,27 @@
 'use client';
-import type { Metadata } from "next";
+
 import "./globals.css";
-import NavBar2 from "@/components/Nav2";
-import Footer from "@/components/Footer";
-import { Providers } from "./providers";
 import { DM_Sans } from "next/font/google";
 import { useEffect, useState } from "react";
 import Lottie from 'lottie-react';
 import loadingAnim from '@/../public/icons/LoadingAnimation.json'
+import { useMetaTags } from 'react-metatags-hook';
+
 
 const DMSANS = DM_Sans({
   weight: ['100','200', '300', '400', '500', '600', '700', '800', '900', '1000'],
   subsets: ['latin'],
 });
 
-const metadata:Metadata = {
-  title: "yeabsira",
-
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
   const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     const handleLoad = () => {
@@ -39,6 +36,10 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <title>Loading....</title>
+        <link rel="icon" href='/yabicon.ico' />
+      </head>
       <body className={`${DMSANS.className} ${loading ? "bg-white" : ""}`}>
         {loading ? (
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>

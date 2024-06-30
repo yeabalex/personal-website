@@ -1,6 +1,4 @@
 'use client';
-
-
 import { Button } from '@nextui-org/react';
 import { Typewriter } from 'react-simple-typewriter';
 import { useEffect, useState } from 'react';
@@ -14,9 +12,12 @@ import styled from 'styled-components'
 import { useMetaTags } from 'react-metatags-hook';
 
 export default function Home() {
+
   useMetaTags({
-    title: 'yab',
+    title: 'Yeabsira | Home',
+    description: `Yeabsira's Personal Website`,
   },[])
+
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [loading, setLoading] = useState(true);
 

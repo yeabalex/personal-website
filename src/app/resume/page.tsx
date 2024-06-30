@@ -1,15 +1,19 @@
 'use client'
 
-import Image from 'next/image';
-import yeab from '@/../public/yeabsira.jpg'
+
 import { useState, useEffect } from 'react';
 import NavBar from '@/components/Nav';
 import NavBar2 from '@/components/Nav2';
 import ImageComp from '@/components/Image';
 import ResumePage from '@/components/Resume'
 import styled from 'styled-components'
+import { useMetaTags } from 'react-metatags-hook';
 
 export default function Resume() {
+
+  useMetaTags({
+    title: 'Yeabsira | Resume',
+  },[])
   
   const ResponsiveContainer = styled.div
   `

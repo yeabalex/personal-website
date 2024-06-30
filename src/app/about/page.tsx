@@ -5,15 +5,18 @@ import "../globals.css";
 import axios from 'axios';
 import MusicPlayer from "@/components/MusicPlayer";
 import AboutMe from "@/components/AboutMe";
-import Hobbies from "@/components/Hobbies";
-import Twitter from "@/components/Twitter";
 import { Spinner } from "@nextui-org/spinner";
 import NavBar from "@/components/Nav";
 import NavBar2 from "@/components/Nav2";
 import ImageComp from "@/components/Image";
+import { useMetaTags } from 'react-metatags-hook';
 
 export default function About() {
   
+  useMetaTags({
+    title: 'Yeabsira | About',
+  },[])
+
   interface Song {
     track: {
       id: string

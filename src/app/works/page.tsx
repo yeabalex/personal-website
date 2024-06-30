@@ -8,10 +8,14 @@ import NavBar from '@/components/Nav'
 import { useState, useEffect } from 'react'
 import NavBar2 from '@/components/Nav2'
 import styled from 'styled-components'
-import Head from 'next/head';
+import { useMetaTags } from 'react-metatags-hook';
 
 
 export default function Works(){
+
+  useMetaTags({
+    title: 'Yeabsira | Works',
+  },[])
 
   const ResponsiveContainer = styled.div
   `
@@ -71,14 +75,6 @@ export default function Works(){
         clicked && !isScrolled ? 'w-[88%] mt-80' : 'w-[100%]'
       }`}
     >
-      <Head>
-        <title>My Next.js Page</title>
-        <meta name="description" content="This is my Next.js page description." />
-        <link rel="icon" href="/path-to-your-favicon.ico" />
-        {/* You can also use other favicon formats */}
-        <link rel="icon" href="/path-to-your-favicon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/path-to-your-apple-touch-icon.png" />
-      </Head>      
       <NavBar toggle={toggleClicked} />
       <NavBar2 clicked={clicked}/>
       <ResponsiveContainer className={`w-[100%] flex`}>

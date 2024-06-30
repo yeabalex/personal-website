@@ -5,10 +5,13 @@ import emailjs from '@emailjs/browser';
 import ImageComp from '@/components/Image';
 import NavBar from '@/components/Nav';
 import NavBar2 from '@/components/Nav2';
-import styled from 'styled-components'
+import { useMetaTags } from 'react-metatags-hook';
 
 const ContactMe: React.FC = () => {
 
+  useMetaTags({
+    title: 'Yeabsira | Contact',
+  },[])
   
   const [name, setName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
