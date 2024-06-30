@@ -68,7 +68,7 @@ export default function Resume() {
       <NavBar2 clicked={clicked}/>
   <ResponsiveContainer className="w-[100%] flex">  
   {isSmallScreen?null:<ImageComp/>}
-  <div className="flex-[0.64] pl-14">
+  <div className={`flex-[0.64] pl-14 ${isSmallScreen?'mt-8':''}`}>
         <ResumePage/>
     </div>
   </ResponsiveContainer>

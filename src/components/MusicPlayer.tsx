@@ -125,10 +125,10 @@ const FixedDiv = styled.div`
   return (
     <Card
       isBlurred
-      className="overflow-scroll flex flex-row items-center col-span-2 justify-center border-none w-[full] h-[280px] relative bg-white hover:transform hover:scale-105 hover:z-10 transition duration-400 cursor-pointer"
+      className={`overflow-scroll flex flex-row items-center col-span-2 justify-center border-none w-[full] ${isSmallScreen?"h-[500px]":"h-[280px]"} relative bg-white hover:transform hover:scale-105 hover:z-10 transition duration-400 cursor-pointer`}
       shadow="sm"
     >
-      <CardBody className={`bg-white/70 p-4 rounded-lg overflow-scroll ${isSmallScreen?"mt-2":""}`}>
+      <CardBody className={`bg-white/70 p-4 rounded-lg overflow-scroll ${isSmallScreen?"-mt-48":""}`}>
       <div
       className="flex justify-evenly gap-16 items-center min-h-[215px] w-[100%]"
       style={isSmallScreen ? smallScreenStyles : {}}
@@ -182,7 +182,7 @@ const FixedDiv = styled.div`
             <div>
               <Lottie animationData={waves} />
             </div>
-            <p className="text-base text-[#1ED760] font-semibold">My Favorite</p>
+            <p className="text-base text-[#1ED760] font-semibold">My Favorites</p>
           </NowPlayingDiv>
         </div>
         <div className="flex flex-col gap-2 w-full">

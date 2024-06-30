@@ -71,7 +71,7 @@ export default function Contact(params: Params) {
   }
 
   return (
-    <div className="flex items-center justify-center w-full overflow-x-hidden mt-8">
+    <div className="flex items-center justify-center w-full overflow-x-hidden mt-8 h-full">
       <div className="w-full max-w-4xl px-4">
         <h1 className="text-4xl font-extrabold">CONTACT ME</h1>
         <div className='bg-[#14242E] w-[50px] h-[10px] mt-2 rounded-full'></div>
@@ -110,22 +110,22 @@ export default function Contact(params: Params) {
             </Button>
             <div>{params.finalMessage}</div>
           </div>
-          <ResponsiveInfo className="flex gap-5 my-10 items-center">
-            <div className="w-[230px] h-[170px] shadow-md border-customColor flex flex-col justify-around items-center">
+          <ResponsiveInfo className="flex gap-5 my-10 items-center w-[100%] justify-center">
+            <div className="w-[200px] h-[170px] shadow-md border-customColor flex flex-col justify-around items-center">
               <div className="flex items-center"><FontAwesomeIcon icon={faLocationDot} style={{ color: "#14242E" }} size="2x" /></div>
               <div>
                 <h1>Address</h1>
                 <p>Addis Ababa, Ethiopia</p>
               </div>
             </div>
-            <div className="w-[230px] h-[170px] shadow-md border-customColor flex flex-col justify-around items-center">
+            <div className="w-[200px] h-[170px] shadow-md border-customColor flex flex-col justify-around items-center">
               <div className="flex items-center"><FontAwesomeIcon icon={faPhone} style={{ color: "#14242E" }} size="2x" /></div>
               <div>
                 <h1>Phone</h1>
                 <p>+123456789</p>
               </div>
             </div>
-            <div className="w-[230px] h-[170px] shadow-md border-customColor flex flex-col justify-around items-center">
+            <div className="w-[200px] h-[170px] shadow-md border-customColor flex flex-col justify-around items-center">
               <div className="flex items-center"><FontAwesomeIcon icon={faEnvelope} style={{ color: "#14242E" }} size="2x" /></div>
               <div>
                 <h1>Email</h1>

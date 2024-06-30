@@ -130,7 +130,7 @@ export default function Home() {
         <div className={`flex-[0.64] ${isSmallScreen?"mt-20":null}`}>
         
          
-          <ResponsivePadding className={`min-h-[240px] flex flex-col justify-between relative ${isSmallScreen?"mb-32":""}`}>
+          <ResponsivePadding className={`min-h-[240px] flex flex-col justify-between relative ${isSmallScreen?"mb-64":""}`}>
             <div className="absolute w-[36px] h-[36px] -top-2 left-[80px] rounded-full bg-[#D6DAD4] z-0"></div>
             <div className="absolute w-[45px] h-[45px] top-[55px] right-[144px] rounded-full bg-[#D6DAD4]"></div>
             <p className="font-bold text-[#14242E] z-10">HELLO, THERE</p>

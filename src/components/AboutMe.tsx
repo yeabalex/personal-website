@@ -13,13 +13,15 @@ const AboutMe = () => {
 
     @media(min-width: 751px){
       flex-direction: row;
+      
     }
   `;
 
   const StyledImageWrapper = styled.div`
-    width: 90%;
+    width: 92%;
     margin-bottom: 50px;
     margin-left: 24px;
+
 
     @media(min-width: 751px){
       width: 50%;

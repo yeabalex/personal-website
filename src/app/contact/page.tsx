@@ -90,13 +90,13 @@ const ContactMe: React.FC = () => {
 
   return (
     <div
-      className={`bg-white flex flex-row justify-center items-center transition-all duration-500 ${
+      className={`bg-white flex flex-row justify-center items-center transition-all duration-500 ${isSmallScreen?'h-full':''} ${
         clicked && !isScrolled ? 'w-[88%] mt-80' : 'w-[100%]'
       }`}
     >
       <NavBar toggle={toggleClicked} />
       <NavBar2 clicked={clicked}/>
-      <div className={`w-[100%] flex ${isSmallScreen ? 'flex-col' : ''}`}>
+      <div className={`w-[100%] flex ${isSmallScreen ? 'flex-col' : ''}  ${isSmallScreen?'h-full items-center':'items-start'}`}>
             {isSmallScreen?null:<ImageComp/>}
         <div className="flex-[0.64] mt-16 pl-10 pr-5">
       <Contact 

@@ -126,7 +126,7 @@ export default function About() {
       try {
         const res = await axios({
           method: 'get',
-          url: 'https://api.spotify.com/v1/playlists/37i9dQZF1DX82pCGH5USnM/tracks',
+          url: 'https://api.spotify.com/v1/playlists/6znL9OMTh5JBeSKB11Yyti/tracks',
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -222,18 +222,18 @@ export default function About() {
   return (
      
     <div
-    className={`bg-white flex flex-row justify-center items-center transition-all duration-500 ${
+    className={`bg-white flex flex-row justify-center items-center transition-all duration-500  ${isSmallScreen?"h-full":""} ${
       clicked && !isScrolled ? 'w-[88%] mt-80' : 'w-[100%]'
     }`}
   >  
       <NavBar toggle={toggleClicked} />
       <NavBar2 clicked={clicked}/>
-          <div className={`w-[100%] flex ${isSmallScreen ? 'flex-col' : ''}`}>
+          <div className={`w-[100%] flex ${isSmallScreen ? 'flex-col items-start justify-start h-full' : ''}`}>
                 {isSmallScreen?null:<ImageComp/>}
             <div className="flex-[0.64] mt-16 pr-5">
 
               <div className="w-[100%] flex flex-row justify-center mb-20">
-                <div className="w-[88%] min-h-[500px] flex flex-col gap-8">  
+              <div className={`w-[88%] min-h-[500px] flex flex-col gap-8 ${isSmallScreen?'mt-10':''}`}>  
                   <AboutMe />
               <div className="pl-8">
                   <MusicPlayer

@@ -26,7 +26,7 @@ export default function RootLayout({
       setLoading(false);
     };
 
-    const loadTime = setTimeout(handleLoad, 3000);
+    const loadTime = setTimeout(handleLoad, 4000);
     return () => {
       clearTimeout(loadTime);
     };

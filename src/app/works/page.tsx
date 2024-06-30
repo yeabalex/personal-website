@@ -15,6 +15,9 @@ export default function Works(){
   `
     @media(max-width: 1001px){
       flex-direction: column;
+      align-items: start;
+      margin-top: 70px;
+      height: 100%;
     }
   `
     const Projects = lazy(()=>import('@/components/Projects'))
@@ -62,13 +65,13 @@ export default function Works(){
 
     return (
     <div
-      className={`bg-white flex flex-row justify-center items-center transition-all duration-500 ${
+      className={`bg-white flex flex-row justify-center items-center transition-all duration-500 ${isSmallScreen?"h-full":''} ${
         clicked && !isScrolled ? 'w-[88%] mt-80' : 'w-[100%]'
       }`}
     >
       <NavBar toggle={toggleClicked} />
       <NavBar2 clicked={clicked}/>
-      <ResponsiveContainer className="w-[100%] flex">
+      <ResponsiveContainer className={`w-[100%] flex`}>
             {isSmallScreen?null:<ImageComp/>}
         <div className="flex-[0.64] mt-16 px-10">
         <Suspense fallback={<Spinner label="" color="default"/>}> 
