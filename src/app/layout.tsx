@@ -14,6 +14,11 @@ const DMSANS = DM_Sans({
   subsets: ['latin'],
 });
 
+const metadata:Metadata = {
+  title: "yeabsira",
+
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{

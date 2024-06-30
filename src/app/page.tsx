@@ -11,13 +11,12 @@ import NavBar from '@/components/Nav';
 import ImageComp from '@/components/Image';
 import NavBar2 from '@/components/Nav2';
 import styled from 'styled-components'
-import Dots from '@/../public/Dots.png'
-import Outline from '@/../public/Style=Outline.svg'
-import Image from 'next/image';
-import { GlowingStarsBackgroundCard } from '@/components/ui/glowing-stars';
+import { useMetaTags } from 'react-metatags-hook';
 
 export default function Home() {
-
+  useMetaTags({
+    title: 'yab',
+  },[])
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [loading, setLoading] = useState(true);
 
